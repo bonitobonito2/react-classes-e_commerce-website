@@ -1,0 +1,23 @@
+.categories {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.unActive{
+    text-decoration: none;
+    color: black;
+}
+
+.active{
+    text-decoration: none;
+    color: rgb(8, 187, 8);
+    border-bottom: 2px solid  rgb(8, 187, 8);
+}
+
+.categories a{
+    margin: 10px;
+    padding-bottom: 10px;
+}

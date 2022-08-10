@@ -1,0 +1,22 @@
+.card {
+  width: 15%;
+  height: 200px;
+  margin: 100px;
+
+}
+.image {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+     background-size: cover; 
+    display: grid;
+    place-items: center;
+}
+.card:hover{
+    background-color: gray;
+}
+span{
+    font-weight: 400;
+    color: gray;
+}

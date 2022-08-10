@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from "react";
+import ProductList from "./components/ProductList/ProductList";
+import { Routes, Route, Navigate } from "react-router-dom";
+import NavBarWrapper from "./components/NavBarWrapper/NavBarWrapper";
+export class App extends React.Component {
+  render() {
+    return (
+      <Routes>
+        <Route path="/productList/category">
+          <Route
+            index
+            element={
+              <NavBarWrapper>
+                <ProductList />
+              </NavBarWrapper>
+            }
+          />
+          <Route
+            path=":category"
+            element={
+              <NavBarWrapper>
+                <ProductList />
+              </NavBarWrapper>
+            }
+          />
+          <Route path="" element={<Navigate to="/all" replace />} />
+        </Route>
+      </Routes>
+    );
+  }
 }
-
 export default App;
