@@ -1,0 +1,7 @@
+.select{
+    float: right ;
+}
+
+.select select{
+    font-size: 18px;
+}

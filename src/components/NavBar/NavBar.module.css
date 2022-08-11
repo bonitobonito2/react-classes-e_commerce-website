@@ -5,4 +5,12 @@
     top: 0;
     left: 0;
     background-color: rgb(255, 255, 255);
+    display: flex;
+}
+.select{
+    width: 70%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
 }
