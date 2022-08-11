@@ -1,9 +1,17 @@
 import React from "react";
 import ProductList from "./components/ProductList/ProductList";
 import { Routes, Route, Navigate } from "react-router-dom";
+import store from "./store/store";
 import NavBarWrapper from "./components/NavBarWrapper/NavBarWrapper";
 export class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      idk: store.getState().currenciesSlice.currency
+    }
+  }
   render() {
+
     return (
       <Routes>
         <Route path="/productList/category">
@@ -25,6 +33,7 @@ export class App extends React.Component {
           />
           <Route path="" element={<Navigate to="/all" replace />} />
         </Route>
+        <Route path="*" element={<Navigate to="/productList/category/all" replace />} />
       </Routes>
     );
   }

@@ -1,12 +1,17 @@
 import React from "react";
 import classes from "./Products.module.css";
 import Card from "../card/Card";
+import { connect } from "react-redux";
+import store from "../../../store/store";
+import { currencyActions } from "../../../store/currencieSlice";
 class Products extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+    console.log(props, 'mhmmhmhm')
+    this.state = null
   }
   render() {
-    console.log(this.props);
+
     return (
       <div className={classes.products}>
         {this.props.products.map((data, index) => {
@@ -16,7 +21,7 @@ class Products extends React.Component {
               id={data.id}
               key={index}
               img={data.gallery[0]}
-              price={data.prices[0]}
+              price={data.prices[this.props.index]}
               stock={data.inStock}
             />
           );
@@ -25,4 +30,11 @@ class Products extends React.Component {
     );
   }
 }
-export default Products;
+
+const mapStateToprops = state => {
+  console.log(state, 'xd')
+  return {
+    index: state.currenciesSlice.index
+  }
+}
+export default connect(mapStateToprops)(Products);
