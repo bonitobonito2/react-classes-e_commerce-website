@@ -2,11 +2,14 @@ import React from "react";
 import classes from "./Card.module.css";
 class Card extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+  }
+  clickListener = ()=>{
+    this.props.navigate('/product/id', {replace: false })
   }
   render() {
     return (
-      <div className={classes.card}>
+      <div onClick={this.clickListener} className={classes.card}>
         <article
           className={classes.image}
           style={{ backgroundImage: `url(${this.props.img})` }}

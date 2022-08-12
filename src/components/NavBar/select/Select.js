@@ -1,17 +1,21 @@
 import React from "react";
 import fetch from "../../helper/fetch";
 import { getCurrencies } from "../../Schemas/getCurrencies";
-import store from "../../../store/store";
-import classes from './Select.module.css'
+import classes from "./Select.module.css";
 import { currencyActions } from "../../../store/currencieSlice";
+import { connect } from "react-redux/es/exports";
 class SelectCurrency extends React.Component {
   constructor(props) {
     super(props);
     this.state = null;
   }
-  selectChangeHandler(event) {
-    store.dispatch(currencyActions.changeCurrency(event.target.value));
-  }
+  selectChangeHandler = (event) => {
+    let data = event.target.value.split(" ");
+    console.log(data);
+    this.props.changeCurrency(data[0]);
+    this.setState({ ...this.state, symbol: data[1] });
+  };
+
   componentDidMount() {
     const getData = async () => {
       const data = await fetch(getCurrencies);
@@ -22,13 +26,16 @@ class SelectCurrency extends React.Component {
   render() {
     console.log(this.state);
     if (this.state === null) return 0;
-    console.log(this.state.data.currencies);
     return (
-      <div className={classes.select}>
-        <select onChange={this.selectChangeHandler}>
+      <div className={classes.selectDiv}>
+        <select  className={classes.select} onChange={this.selectChangeHandler}>
           {this.state.data.currencies.map((data, index) => (
-            <option key={index} value={`${index}`}>
-              {data.symbol}
+            <option
+              className={classes.option}
+              key={index}
+              value={`${index} ${data.symbol}`}
+            >
+             {`${data.symbol} ${data.label}`}
             </option>
           ))}
         </select>
@@ -36,4 +43,10 @@ class SelectCurrency extends React.Component {
     );
   }
 }
-export default SelectCurrency;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeCurrency: (index) => dispatch(currencyActions.changeCurrency(index)),
+  };
+};
+export default connect(null, mapDispatchToProps)(SelectCurrency);

@@ -9,6 +9,7 @@ class NavBarWrapper extends React.Component {
     return (
       <Fragment>
         <NavBar />
+        <br/>
         {this.props.children}
       </Fragment>
     );
