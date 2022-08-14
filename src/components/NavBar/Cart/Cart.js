@@ -4,7 +4,7 @@ class Card extends React.Component{
 
 
     render(){
-        return <img className={classes.img} src="https://cdn-icons-png.flaticon.com/512/263/263142.png" />
+        return <img alt = 'cart' className={classes.img} src="https://cdn-icons-png.flaticon.com/512/263/263142.png" />
     }
 }
 

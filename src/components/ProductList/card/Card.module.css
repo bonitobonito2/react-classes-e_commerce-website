@@ -1,8 +1,9 @@
 .card {
   width: 15%;
-  height: 200px;
-  margin: 100px;
-
+  height: 250px;
+  width: 19%;
+  margin: 50px;
+ cursor: pointer;
 }
 .image {
     height: 100%;
@@ -13,9 +14,7 @@
     display: grid;
     place-items: center;
 }
-.card:hover{
-    background-color: gray;
-}
+
 span{
     font-weight: 400;
     color: gray;

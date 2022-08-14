@@ -7,3 +7,10 @@
     align-items: center;
     justify-content: center;
 }
+
+h2{
+    position: relative;
+    top: 40px;
+    left: 50px;
+    font-weight: 350;
+}

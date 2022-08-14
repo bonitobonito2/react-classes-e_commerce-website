@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { getProduct } from "../Schemas/getProduct";
+import { getProducts } from "../Schemas/getProducts";
 import Products from "./products/Products";
 import fetch from "../helper/fetch";
 import { withRouter } from "../helper/withRouter";
@@ -11,7 +11,7 @@ class ProductList extends React.Component {
 
   componentDidMount() {
     const takeData = async () => {
-      const data = await fetch(getProduct, {
+      const data = await fetch(getProducts, {
         input: { title: this.state.param },
       });
       this.setState({
@@ -24,7 +24,7 @@ class ProductList extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.params.category !== this.props.params.category) {
       const takeData = async () => {
-        const data = await fetch(getProduct, {
+        const data = await fetch(getProducts, {
           input: { title: this.props.params.category },
         });
         this.setState({
@@ -39,7 +39,7 @@ class ProductList extends React.Component {
     if (this.state.data === "") return <p>loading</p>;
     return (
       <Fragment>
-        <Products products={this.state.data.category.products} />
+        <Products navigate = {this.props.navigate} products={this.state.data.category.products} />
       </Fragment>
     );
   }
