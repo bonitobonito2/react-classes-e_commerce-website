@@ -20,9 +20,7 @@ class SelectCurrency extends React.Component {
     getData();
   }
   render() {
-    console.log(this.state);
     if (this.state === null) return 0;
-    console.log(this.state.data.currencies);
     return (
       <div className={classes.select}>
         <select onChange={this.selectChangeHandler}>
