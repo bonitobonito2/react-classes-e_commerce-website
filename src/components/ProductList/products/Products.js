@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import classes from "./Products.module.css";
+import { clickedProductIdActions } from "../../../store/clickedProductIdSlice";
 import Card from "../card/Card";
 import { connect } from "react-redux";
 class Products extends React.Component {
@@ -7,6 +8,11 @@ class Products extends React.Component {
     super(props);
     this.state = null;
   }
+  clickHandler = (id) => {
+    this.props.setClickedProductID(id);
+    console.log(this.props)
+  };
+
   render() {
     return (
       <Fragment>
@@ -15,7 +21,8 @@ class Products extends React.Component {
           {this.props.products.map((data, index) => {
             return (
               <Card
-                navigate = {this.props.navigate}
+                saveIdHandler={this.clickHandler}
+                navigate={this.props.navigate}
                 name={data.name}
                 id={data.id}
                 key={index}
@@ -32,9 +39,15 @@ class Products extends React.Component {
 }
 
 const mapStateToprops = (state) => {
-  console.log(state, "xd");
   return {
     index: state.currenciesSlice.index,
   };
 };
-export default connect(mapStateToprops)(Products);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setClickedProductID: (id) =>
+      dispatch(clickedProductIdActions.setClickedProductId(id)),
+  };
+};
+export default connect(mapStateToprops, mapDispatchToProps)(Products);

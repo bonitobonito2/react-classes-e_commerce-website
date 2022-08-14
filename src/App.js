@@ -2,7 +2,7 @@ import React from "react";
 import ProductList from "./components/ProductList/ProductList";
 import { Routes, Route, Navigate } from "react-router-dom";
 import store from "./store/store";
-import ProductDetail from "./components/DetailProductPage/productDetail";
+import ProductDetailPage from "./components/DetailProductPage/productDetailPage";
 import NavBarWrapper from "./components/NavBarWrapper/NavBarWrapper";
 export class App extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ export class App extends React.Component {
             path=":id"
             element={
               <NavBarWrapper>
-              <ProductDetail />
+              <ProductDetailPage />
               </NavBarWrapper>
             }
           />

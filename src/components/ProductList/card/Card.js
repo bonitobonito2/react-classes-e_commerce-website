@@ -6,6 +6,7 @@ class Card extends React.Component {
   }
   clickListener = ()=>{
     this.props.navigate('/product/id', {replace: false })
+    this.props.saveIdHandler(this.props.id)
   }
   render() {
     return (

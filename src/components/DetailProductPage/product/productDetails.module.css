@@ -1,0 +1,9 @@
+.main{
+    position: relative;
+    top: 50px;
+    margin: 0 auto;
+    width: 80vw;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+}
