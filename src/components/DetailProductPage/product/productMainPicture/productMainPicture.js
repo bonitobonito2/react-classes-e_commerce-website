@@ -6,7 +6,7 @@ class ProductMainPicture extends React.Component {
     }
   render() {
     return <div className={classes.mainImg}>
-        <img className={classes.img} src={this.props.pictures[0]} />
+        <img className={classes.img} src={this.props.pictures[this.props.pictureIndex]} />
     </div>
   }
 }

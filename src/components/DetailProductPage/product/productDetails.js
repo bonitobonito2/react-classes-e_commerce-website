@@ -6,19 +6,27 @@ import ProductDescription from "./productDescription/productDescription";
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      pictureIndex: 0,
+    };
   }
+  setPictureIndex = (index) => {
+    this.setState({ ...this.state, pictureIndex: index });
+  };
   render() {
     return (
       <Fragment>
-        <br />
         <div className={classes.main}>
           <ProductPictures
             pictures={this.props.productDetails.data.product.gallery}
+            setIndex={this.setPictureIndex}
+            index={this.state.pictureIndex}
           />
           <ProductMainPicture
             pictures={this.props.productDetails.data.product.gallery}
+            pictureIndex={this.state.pictureIndex}
           />
-          <ProductDescription />
+          <ProductDescription data={this.props.productDetails.data.product} />
         </div>
       </Fragment>
     );

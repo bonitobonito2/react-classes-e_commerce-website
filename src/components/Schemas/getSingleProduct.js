@@ -5,6 +5,7 @@ export const getSingleProduct = gql`
         product(id : $id){
             id,
             name,
+            brand
             inStock,
             gallery,
             description,
