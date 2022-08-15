@@ -1,9 +1,91 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classes from "./productDescription.module.css";
-import attributeParser from "../../../helper/attributeParser";
 import { connect } from "react-redux";
 class ProductDescription extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  colorChooseHandler = (data) => {
+    this.setState(data);
+  };
+
+  attributeParser = (index, attribute,idks) => {
+    console.log(idks)
+    return (
+      <div>
+        <p className={classes.title}> {attribute[index].id}:</p>
+        <div className={classes.conteiner}>
+          {attribute[index].items.map((data, index1) => {
+            if (attribute[index].type === "swatch") {
+              return (
+                <div
+                  onClick={() => this.colorChooseHandler({ color: data.value })}
+                  style={{
+                    backgroundColor: `${data.value}`,
+                    color: `${data.value}`,
+                    cursor: "pointer",
+                    margin: "2px",
+                  }}
+                ></div>
+              );
+            } else {
+              return (
+                <Fragment>
+                  {index1 === 0 ? (
+                    <button
+                      onClick={() =>
+                        this.colorChooseHandler({ text: data.value })
+                      }
+                      className={classes.span}
+                      style={{ background: "black", color: "white" }}
+                    >
+                      {data.value}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() =>
+                        this.colorChooseHandler({ text: data.value })
+                      }
+                      className={classes.span}
+                    >
+                      {data.value}
+                    </button>
+                  )}
+                </Fragment>
+              );
+            }
+          })}
+        </div>
+        <br />
+      </div>
+    );
+  };
+
+  componentDidMount() {
+    let fakeState = { names: [] };
+    console.log(this.props.data);
+    if (this.props.data.attributes) {
+      console.log("shemovedi");
+      for (let i = 0; i < this.props.data.attributes.length; i++) {
+        console.log(this.props.data.attributes[i].name);
+        let names = fakeState.names;
+        names.push(this.props.data.attributes[i].name);
+        fakeState = { names: names };
+      }
+    }
+    this.setState(fakeState);
+  }
+
+  handler = (index) => {
+    return this.attributeParser(
+      index,
+      this.props.data.attributes,
+      this.state
+    );
+  };
   render() {
+    console.log(this.state);
     return (
       <div className={classes.main}>
         <div>
@@ -11,17 +93,15 @@ class ProductDescription extends React.Component {
           <p>{this.props.data.name}</p>
         </div>
 
-        {this.props.data.attributes[0] &&
-          attributeParser(0, this.props.data.attributes)}
+        {this.props.data.attributes[0] && this.handler(0)}
 
-        {this.props.data.attributes[1] &&
-          attributeParser(1, this.props.data.attributes)}
+        {this.props.data.attributes[1] && this.handler(1)}
 
         <div>
           <p className={classes.title}>price:</p>
           <span className={classes.price}>
-            {this.props.data.prices[this.props.index].amount}
             {this.props.data.prices[this.props.index].currency.symbol}
+            {this.props.data.prices[this.props.index].amount}
           </span>
         </div>
         <br />
