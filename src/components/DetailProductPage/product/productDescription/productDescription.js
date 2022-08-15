@@ -1,43 +1,7 @@
 import React from "react";
 import classes from "./productDescription.module.css";
+import attributeParser from "../../../helper/attributeParser";
 class ProductDescription extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props.data.attributes)
-  }
-
-  //creating this function to not dublicate code
-  attributeRenderer = (index) => {
-    return (
-      <div>
-        <p className={classes.title}> {this.props.data.attributes[index].id}:</p>
-        <div className={classes.conteiner}>
-          {this.props.data.attributes[index].items.map((data) => {
-            if (this.props.data.attributes[index].type === "swatch") {
-              return (
-                <div
-                  style={{
-                    backgroundColor: `${data.value}`,
-                    color: `${data.value}`,
-                    cursor: "pointer",
-                    margin: "2px",
-                  }}
-                  className={classes.div}
-                >
-                 
-                </div>
-              );
-            } else {
-              return <span className={classes.span}>{data.displayValue}</span>;
-            }
-          })}
-        </div>
-        <br/>
-      </div>
-    );
-  };
-
-
   render() {
     return (
       <div className={classes.main}>
@@ -46,9 +10,11 @@ class ProductDescription extends React.Component {
           <p>{this.props.data.name}</p>
         </div>
 
-        {this.props.data.attributes[0] &&this.attributeRenderer(0)}
+        {this.props.data.attributes[0] &&
+          attributeParser(0, this.props.data.attributes)}
 
-        {this.props.data.attributes[1] && this.attributeRenderer(1)}
+        {this.props.data.attributes[1] &&
+          attributeParser(1, this.props.data.attributes)}
 
         <div>
           <p className={classes.title}>price:</p>
@@ -59,7 +25,7 @@ class ProductDescription extends React.Component {
         </div>
         <br />
         <div>
-          <button className={classes.addCart}>add to card</button>
+          <button className={classes.addCart}>add to cart</button>
         </div>
       </div>
     );
