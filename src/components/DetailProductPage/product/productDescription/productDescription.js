@@ -4,10 +4,13 @@ import { connect } from "react-redux";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      index : 0
+    }
   }
 
-  colorChooseHandler = (data) => {
-    this.setState(data);
+  colorChooseHandler = (index) => {
+    this.setState({index : index});
   };
 
   attributeParser = (index, attribute) => {
@@ -31,10 +34,10 @@ class ProductDescription extends React.Component {
             } else {
               return (
                 <Fragment>
-                  {index1 === 0 ? (
+                  {index1 === this.state.index ? (
                     <button
                       onClick={() =>
-                        this.colorChooseHandler({ text: data.value })
+                        this.colorChooseHandler(index1)
                       }
                       className={classes.span}
                       style={{ background: "black", color: "white" }}
@@ -44,7 +47,7 @@ class ProductDescription extends React.Component {
                   ) : (
                     <button
                       onClick={() =>
-                        this.colorChooseHandler({ text: data.value })
+                        this.colorChooseHandler(index1)
                       }
                       className={classes.span}
                     >
@@ -61,21 +64,21 @@ class ProductDescription extends React.Component {
     );
   };
 
-  componentDidMount() {
-    let fakeState = { names: [] };
-    console.log(this.props.data);
-    if (this.props.data.attributes) {
-      console.log("shemovedi");
-      for (let i = 0; i < this.props.data.attributes.length; i++) {
-        console.log(this.props.data.attributes[i].name);
-        let names = fakeState.names;
-        names.push(this.props.data.attributes[i].name);
-        fakeState = { names: names };
-      }
-    }
-    console.log(fakeState.names);
-    this.setState(fakeState.names);
-  }
+  // componentDidMount() {
+  //   let fakeState = { names: [] };
+  //   console.log(this.props.data);
+  //   if (this.props.data.attributes) {
+  //     console.log("shemovedi");
+  //     for (let i = 0; i < this.props.data.attributes.length; i++) {
+  //       console.log(this.props.data.attributes[i].name);
+  //       let names = fakeState.names;
+  //       names.push(this.props.data.attributes[i].name);
+  //       fakeState = { names: names };
+  //     }
+  //   }
+  //   console.log(fakeState.names);
+  //   this.setState(fakeState.names);
+  // }
 
   handler = (index) => {
     return this.attributeParser(index, this.props.data.attributes);
