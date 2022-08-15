@@ -10,8 +10,7 @@ class ProductDescription extends React.Component {
     this.setState(data);
   };
 
-  attributeParser = (index, attribute,idks) => {
-    console.log(idks)
+  attributeParser = (index, attribute) => {
     return (
       <div>
         <p className={classes.title}> {attribute[index].id}:</p>
@@ -74,18 +73,14 @@ class ProductDescription extends React.Component {
         fakeState = { names: names };
       }
     }
-    this.setState(fakeState);
+    console.log(fakeState.names);
+    this.setState(fakeState.names);
   }
 
   handler = (index) => {
-    return this.attributeParser(
-      index,
-      this.props.data.attributes,
-      this.state
-    );
+    return this.attributeParser(index, this.props.data.attributes);
   };
   render() {
-    console.log(this.state);
     return (
       <div className={classes.main}>
         <div>
