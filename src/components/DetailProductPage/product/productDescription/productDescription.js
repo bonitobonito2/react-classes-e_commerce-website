@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./productDescription.module.css";
 import attributeParser from "../../../helper/attributeParser";
+import { connect } from "react-redux";
 class ProductDescription extends React.Component {
   render() {
     return (
@@ -19,8 +20,8 @@ class ProductDescription extends React.Component {
         <div>
           <p className={classes.title}>price:</p>
           <span className={classes.price}>
-            {this.props.data.prices[0].amount}
-            {this.props.data.prices[0].currency.symbol}
+            {this.props.data.prices[this.props.index].amount}
+            {this.props.data.prices[this.props.index].currency.symbol}
           </span>
         </div>
         <br />
@@ -32,4 +33,10 @@ class ProductDescription extends React.Component {
   }
 }
 
-export default ProductDescription;
+const mapStateToprops = (state) => {
+  return {
+    index: state.currenciesSlice.index,
+  };
+};
+
+export default connect(mapStateToprops)(ProductDescription);
