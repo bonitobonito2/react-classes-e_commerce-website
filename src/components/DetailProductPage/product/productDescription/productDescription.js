@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import classes from "./productDescription.module.css";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.data.attributes)
   }
 
   //creating this function to not dublicate code
@@ -45,7 +46,7 @@ class ProductDescription extends React.Component {
           <p>{this.props.data.name}</p>
         </div>
 
-        {this.attributeRenderer(0)}
+        {this.props.data.attributes[0] &&this.attributeRenderer(0)}
 
         {this.props.data.attributes[1] && this.attributeRenderer(1)}
 
