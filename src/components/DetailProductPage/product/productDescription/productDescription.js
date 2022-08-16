@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import classes from "./productDescription.module.css";
+import { cartSliceActions } from "../../../../store/cartSlice";
 import { connect } from "react-redux";
+import AddToCartButton from "./addToCartButton/addToCartButton";
 import attributeParser from "../../../helper/attributeParser";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
-
+    
     // maneging two state indexs, due to manipulate change attribute items, for example
     //if i want to change a color, size shouldnot change automaticcly.
     this.state = {
@@ -14,7 +16,7 @@ class ProductDescription extends React.Component {
     };
   }
   componentDidMount() {
-    window.scrollTo({ top: 0, left: 0});
+    window.scrollTo({ top: 0, left: 0 });
   }
 
   indexChangeForFirst = (index) => {
@@ -62,9 +64,13 @@ class ProductDescription extends React.Component {
           </span>
         </div>
         <br />
-        <div>
-          <button className={classes.addCart}>add to cart</button>
-        </div>
+        <AddToCartButton
+          index1={this.state.indexForFirst}
+          index2={this.state.indexForSecond}
+          addToCart = {this.props.setClickedProductID}
+          productId = {this.props.id}
+          
+        />
         <br />
         <div
           className={classes.descriptionDiv}
@@ -78,7 +84,13 @@ class ProductDescription extends React.Component {
 const mapStateToprops = (state) => {
   return {
     index: state.currenciesSlice.index,
+    id: state.clickedProductIdSlice.clickedProductId,
   };
 };
-
-export default connect(mapStateToprops)(ProductDescription);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setClickedProductID: (product) =>
+      dispatch(cartSliceActions.addProductToCart(product)),
+  };
+};
+export default connect(mapStateToprops, mapDispatchToProps)(ProductDescription);

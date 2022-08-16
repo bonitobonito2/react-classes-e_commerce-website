@@ -1,4 +1,5 @@
 .navBar{
+    z-index: 10000;
     width: 100vw;
     height: 5vh;
     position: absolute;
