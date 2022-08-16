@@ -5,6 +5,7 @@ export const parser = (arr, properties) => {
     if (data.type === "swatch") {
       return (
         <div className={classes.idk}>
+          
           {data.items.map((color, index) => {
             if (index === properties[0]["index" + (mainIndex + 1)]) {
               return (

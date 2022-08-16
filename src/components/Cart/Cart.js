@@ -5,11 +5,13 @@ import TotalAmount from "./CartComponents/totalAmount/totalAmount";
 import fetch from "../helper/fetch";
 import { getSingleProduct } from "../Schemas/getSingleProduct";
 import Modal from "../Modal/Modal";
+import ChekoutButton from "./CartComponents/actions/checkoutButton";
+import ViewBagButton from "./CartComponents/actions/viewBagButton";
 import CartProducts from "./CartComponents/products/product";
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props)
+    console.log(props);
     this.state = {
       data: "",
     };
@@ -25,6 +27,7 @@ class Cart extends React.Component {
 
         data.push(item);
       }
+      console.log(data, "xddddddddddddddddd");
       this.setState({ data });
     };
     takeData();
@@ -34,11 +37,20 @@ class Cart extends React.Component {
     console.log(this.state.data);
     if (this.state.data === "") return <p>loading</p>;
     return (
+
       <Modal click={this.props.clickHandler}>
         <div className={classes.cart}>
           <TotalAmount totalAmount={this.props.totalAmount} />
-          <CartProducts indexs = {this.props.products} products = {this.state.data} />
+          <CartProducts
+            indexs={this.props.products}
+            products={this.state.data}
+          />
+          
         </div>
+        <div className={classes.actions}>
+            <ViewBagButton />
+            <ChekoutButton />
+          </div>
       </Modal>
     );
   }

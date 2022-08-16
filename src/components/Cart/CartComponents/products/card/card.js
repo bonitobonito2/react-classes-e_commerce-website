@@ -4,6 +4,7 @@ import { parser } from "./cardAttributeParser";
 class CartProductCard extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props)
 
     let information = [];
     for (let i = 0; i < this.props.product.attributes.length; i++) {
