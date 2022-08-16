@@ -4,6 +4,22 @@
 }
 
 .img{
-    width: 400px;
-   height: 400px;
+    width: 550px;
+   height: 550px;
 }
+
+@media only screen and (max-width: 1550px) {
+    .img{
+        width: 450px;
+       height: 450px;
+    }
+  }
+
+
+  
+@media only screen and (max-width: 1250px) {
+    .img{
+        width: 350px;
+       height: 350px;
+    }
+  }

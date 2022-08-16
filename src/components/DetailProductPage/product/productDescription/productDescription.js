@@ -1,87 +1,45 @@
 import React, { Fragment } from "react";
 import classes from "./productDescription.module.css";
 import { connect } from "react-redux";
+import attributeParser from "../../../helper/attributeParser";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
+
+    // maneging two state indexs, due to manipulate change attribute items, for example
+    //if i want to change a color, size shouldnot change automaticcly.
     this.state = {
-      index : 0
-    }
+      indexForFirst: 0,
+      indexForSecond: 0,
+    };
+  }
+  componentDidMount() {
+    window.scrollTo({ top: 0, left: 0});
   }
 
-  colorChooseHandler = (index) => {
-    this.setState({index : index});
+  indexChangeForFirst = (index) => {
+    this.setState({ indexForFirst: index });
   };
-
-  attributeParser = (index, attribute) => {
-    return (
-      <div>
-        <p className={classes.title}> {attribute[index].id}:</p>
-        <div className={classes.conteiner}>
-          {attribute[index].items.map((data, index1) => {
-            if (attribute[index].type === "swatch") {
-              return (
-                <div
-                  onClick={() => this.colorChooseHandler({ color: data.value })}
-                  style={{
-                    backgroundColor: `${data.value}`,
-                    color: `${data.value}`,
-                    cursor: "pointer",
-                    margin: "2px",
-                  }}
-                ></div>
-              );
-            } else {
-              return (
-                <Fragment>
-                  {index1 === this.state.index ? (
-                    <button
-                      onClick={() =>
-                        this.colorChooseHandler(index1)
-                      }
-                      className={classes.span}
-                      style={{ background: "black", color: "white" }}
-                    >
-                      {data.value}
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() =>
-                        this.colorChooseHandler(index1)
-                      }
-                      className={classes.span}
-                    >
-                      {data.value}
-                    </button>
-                  )}
-                </Fragment>
-              );
-            }
-          })}
-        </div>
-        <br />
-      </div>
-    );
+  indexChangeForSecond = (index) => {
+    this.setState({ indexForSecond: index });
   };
-
-  // componentDidMount() {
-  //   let fakeState = { names: [] };
-  //   console.log(this.props.data);
-  //   if (this.props.data.attributes) {
-  //     console.log("shemovedi");
-  //     for (let i = 0; i < this.props.data.attributes.length; i++) {
-  //       console.log(this.props.data.attributes[i].name);
-  //       let names = fakeState.names;
-  //       names.push(this.props.data.attributes[i].name);
-  //       fakeState = { names: names };
-  //     }
-  //   }
-  //   console.log(fakeState.names);
-  //   this.setState(fakeState.names);
-  // }
 
   handler = (index) => {
-    return this.attributeParser(index, this.props.data.attributes);
+    if (index === 0)
+      return attributeParser(
+        index,
+        this.props.data.attributes,
+        this.state.indexForFirst,
+        this.indexChangeForFirst
+      );
+
+    if (index === 1)
+      return attributeParser(
+        index,
+        this.props.data.attributes,
+        this.state.indexForSecond,
+        this.indexChangeForSecond
+      );
   };
   render() {
     return (
@@ -90,9 +48,10 @@ class ProductDescription extends React.Component {
           <h1>{this.props.data.brand}</h1>
           <p>{this.props.data.name}</p>
         </div>
-
+        {/* if attribute has first element, parsing it as an html */}
         {this.props.data.attributes[0] && this.handler(0)}
 
+        {/* if attribute has second element, parsing it as an html */}
         {this.props.data.attributes[1] && this.handler(1)}
 
         <div>
@@ -106,6 +65,11 @@ class ProductDescription extends React.Component {
         <div>
           <button className={classes.addCart}>add to cart</button>
         </div>
+        <br />
+        <div
+          className={classes.descriptionDiv}
+          dangerouslySetInnerHTML={{ __html: this.props.data.description }}
+        />
       </div>
     );
   }

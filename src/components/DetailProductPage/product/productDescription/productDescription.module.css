@@ -3,13 +3,15 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .main div {
-  width: 100%;
+  width: 90%;
   height: fit-content;
 }
-
 
 .span {
   border: 1px solid black;
@@ -25,8 +27,8 @@
 }
 
 .addCart {
- width: 250px;
- height: 50px;
+  width: 250px;
+  height: 50px;
   background-color: rgb(81, 208, 129);
   cursor: pointer;
 }
@@ -51,4 +53,33 @@
   margin: 0;
   font-size: 18px;
   font-weight: 700;
+}
+
+.choosenColorDiv {
+  border: 1px solid rgb(4, 105, 4);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.descriptionDiv{
+  align-self: stretch;
+  max-width: 65%;
+  position: relative;
+  left: 50px;
+}
+
+
+@media only screen and (max-width: 2000px) {
+  .main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    align-content: center;
+  }
+
 }
