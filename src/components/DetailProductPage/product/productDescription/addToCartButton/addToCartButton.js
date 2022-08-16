@@ -1,11 +1,9 @@
 import React from "react";
 import classes from "./addToCartButton.module.css";
-import { cartSliceActions } from "../../../../../store/cartSlice";
-import { connect } from "react-redux";
+
 class AddToCartButton extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   clickListener = () => {
@@ -13,7 +11,8 @@ class AddToCartButton extends React.Component {
       id: this.props.productId,
       index1: this.props.index1,
       index2: this.props.index2,
-      count : 1
+      index3 : this.props.index3,
+      count: 1,
     });
   };
   render() {

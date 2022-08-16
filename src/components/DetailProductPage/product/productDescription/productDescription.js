@@ -7,12 +7,13 @@ import attributeParser from "../../../helper/attributeParser";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);
-    
+
     // maneging two state indexs, due to manipulate change attribute items, for example
     //if i want to change a color, size shouldnot change automaticcly.
     this.state = {
       indexForFirst: 0,
       indexForSecond: 0,
+      indexForThird: 0,
     };
   }
   componentDidMount() {
@@ -25,7 +26,9 @@ class ProductDescription extends React.Component {
   indexChangeForSecond = (index) => {
     this.setState({ indexForSecond: index });
   };
-
+  indexChangeForThird = (index) => {
+    this.setState({ indexForThird: index });
+  };
   handler = (index) => {
     if (index === 0)
       return attributeParser(
@@ -42,6 +45,14 @@ class ProductDescription extends React.Component {
         this.state.indexForSecond,
         this.indexChangeForSecond
       );
+
+    if (index === 2)
+      return attributeParser(
+        index,
+        this.props.data.attributes,
+        this.state.indexForThird,
+        this.indexChangeForThird
+      );
   };
   render() {
     return (
@@ -56,6 +67,8 @@ class ProductDescription extends React.Component {
         {/* if attribute has second element, parsing it as an html */}
         {this.props.data.attributes[1] && this.handler(1)}
 
+        {this.props.data.attributes[2] && this.handler(2)}
+
         <div>
           <p className={classes.title}>price:</p>
           <span className={classes.price}>
@@ -67,9 +80,9 @@ class ProductDescription extends React.Component {
         <AddToCartButton
           index1={this.state.indexForFirst}
           index2={this.state.indexForSecond}
-          addToCart = {this.props.setClickedProductID}
-          productId = {this.props.id}
-          
+          index3={this.state.indexForThird}
+          addToCart={this.props.setClickedProductID}
+          productId={this.props.id}
         />
         <br />
         <div

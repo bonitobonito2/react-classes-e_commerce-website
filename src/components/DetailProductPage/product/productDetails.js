@@ -6,7 +6,6 @@ import ProductDescription from "./productDescription/productDescription";
 class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.productDetails.data.product)
     this.state = {
       pictureIndex: 0,
     };

@@ -1,8 +1,8 @@
 import React from "react";
 import Categories from "./categories/categories";
 import classes from "./NavBar.module.css";
-import Cart from './Cart/Cart'
 import SelectCurrency from "./select/Select";
+import NavBarCart from "./NavBarCart/navBarCart";
 class NavBar extends React.Component {
   render() {
     return (
@@ -10,7 +10,7 @@ class NavBar extends React.Component {
         <Categories />
         <div className={classes.select}>
           <SelectCurrency />
-          <Cart />
+          <NavBarCart />
         </div>
       </div>
     );

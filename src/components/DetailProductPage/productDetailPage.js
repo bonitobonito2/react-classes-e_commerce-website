@@ -7,6 +7,7 @@ import ProductDetails from "./product/productDetails";
 class ProductDetailPage extends React.Component {
   constructor(props) {
     super(props);
+  
     this.state = { data: "" };
   }
   componentDidMount() {

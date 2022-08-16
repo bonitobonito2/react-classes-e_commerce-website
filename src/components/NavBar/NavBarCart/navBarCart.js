@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import Modal from "../../Modal/Modal";
-import classes from "./Cart.module.css";
-class Card extends React.Component {
+import classes from "./navBarCart.module.css";
+import Cart from "../../Cart/Cart";
+class NavBarCart extends React.Component {
   constructor(props) {
     super(props);
 
@@ -10,12 +10,10 @@ class Card extends React.Component {
     };
   }
   clickHandler = () => {
-    console.log("click");
-    this.setState({...this.setState, showCart : !this.state.showCart})
+    this.setState({ ...this.setState, showCart: !this.state.showCart });
   };
 
   render() {
-    console.log(this.state)
     return (
       <Fragment>
         <img
@@ -24,10 +22,10 @@ class Card extends React.Component {
           className={classes.img}
           src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
         />
-        {this.state.showCart && <Modal click = {this.clickHandler} ><p>hola</p></Modal>}
+        {this.state.showCart && <Cart clickHandler={this.clickHandler} />}
       </Fragment>
     );
   }
 }
 
-export default Card;
+export default NavBarCart;
