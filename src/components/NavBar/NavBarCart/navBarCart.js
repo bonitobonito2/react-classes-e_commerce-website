@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import classes from "./navBarCart.module.css";
+import { connect } from "react-redux";
 import Cart from "../../Cart/Cart";
 class NavBarCart extends React.Component {
   constructor(props) {
@@ -16,20 +17,8 @@ class NavBarCart extends React.Component {
   render() {
     return (
       <Fragment>
-        <article />
-        {/* <img
-          onClick={this.clickHandler}
-          alt="cart"
-          className={classes.img}
-          src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
-        /> */}
-
-        <article
-          className={classes.img}
-          onClick={this.clickHandler}
-          
-        >
-          <span>1</span>
+        <article className={classes.img} onClick={this.clickHandler}>
+          {this.props.totalAmount !== 0 && <span>{this.props.totalAmount}</span>}
         </article>
 
         {this.state.showCart && <Cart clickHandler={this.clickHandler} />}
@@ -37,5 +26,9 @@ class NavBarCart extends React.Component {
     );
   }
 }
-
-export default NavBarCart;
+const mapStateToprops = (state) => {
+  return {
+    totalAmount: state.cartSlice.totalAmount,
+  };
+};
+export default connect(mapStateToprops)(NavBarCart);

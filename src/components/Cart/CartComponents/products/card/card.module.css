@@ -1,12 +1,11 @@
 .card {
   display: flex;
-  width: 95%;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   padding-bottom: 10px;
-  padding-top: 5px;
+  padding-top: 10px;
   padding-left: 15px;
-  height: 250px;
+  max-height: 250px;
+ justify-content: flex-start;
 }
 .description {
   width: 50%;
@@ -14,16 +13,22 @@
   display: flex;
   flex-direction: column;
   font-size: 15px;
+  height: fit-content;
+}
+span {
+  color: rgb(114, 113, 113);
 }
 
 .img {
-  width: 40%;
+  width: 45%;
   height: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .img img {
-  width: 100%;
-  height: 90%;
+  width: 95%;
+  height: fit-content;
 }
 
 .idk {
@@ -33,16 +38,15 @@
 
 .borderDiv {
   border: 2px solid rgb(81, 208, 129);
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .coast {
   color: black;
   font-weight: 500;
 }
-span {
-  color: rgb(114, 113, 113);
-}
+

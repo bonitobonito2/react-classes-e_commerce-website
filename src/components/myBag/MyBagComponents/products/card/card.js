@@ -61,7 +61,7 @@ class CartProductCard extends React.Component {
           </span>
 
           {this.state.information &&
-            parser(this.state.information, this.state.choosenProperties)}
+            parser(this.state.information, this.state.choosenProperties, 'bag')}
         </div>
 
         <AmountActions

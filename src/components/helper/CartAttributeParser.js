@@ -1,11 +1,16 @@
 import { Fragment } from "react";
-import classes from '../Cart/CartComponents/products/card/card.module.css'
-export const parser = (arr, properties) => {
+import classes from "../Cart/CartComponents/products/card/card.module.css";
+export const parser = (arr, properties, additionalInfo) => {
   return arr.map((data, mainIndex) => {
     if (data.type === "swatch") {
       return (
         <Fragment>
-          <span >{arr[mainIndex].name}:</span>
+          {additionalInfo === "bag" ? (
+            <span style={{ color: "black" }}>{arr[mainIndex].name}:</span>
+          ) : (
+            <span>{arr[mainIndex].name}:</span>
+          )}
+
           <div className={classes.idk}>
             {data.items.map((color, index) => {
               if (index === properties[0]["index" + (mainIndex + 1)]) {
@@ -17,6 +22,7 @@ export const parser = (arr, properties) => {
                         color: `${color.value}`,
                         width: "20px",
                         height: "20px",
+                        border : '1px solid black'
                       }}
                     />
                   </div>
@@ -30,6 +36,7 @@ export const parser = (arr, properties) => {
                     margin: "5px",
                     width: "20px",
                     height: "20px",
+                    border : '1px solid black'
                   }}
                 ></div>
               );
@@ -41,7 +48,11 @@ export const parser = (arr, properties) => {
     if (data.type === "text") {
       return (
         <Fragment>
-          <span>{arr[mainIndex].name}: </span>
+          {additionalInfo === "bag" ? (
+            <span style={{ color: "black" }}>{arr[mainIndex].name}:</span>
+          ) : (
+            <span>{arr[mainIndex].name}:</span>
+          )}
           <div className={classes.idk}>
             {data.items.map((info, index) => {
               if (index === properties[0]["index" + (mainIndex + 1)]) {

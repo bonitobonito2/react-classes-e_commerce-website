@@ -26,6 +26,7 @@ const attributeParser = (index, attribute, stateIndex, changeFunction) => {
                         backgroundColor: `${data.value}`,
                         color: `${data.value}`,
                         cursor: "pointer",
+                        border : '1px solid black'
                       }}
                     ></div>
                   </div>
@@ -37,6 +38,7 @@ const attributeParser = (index, attribute, stateIndex, changeFunction) => {
                       color: `${data.value}`,
                       cursor: "pointer",
                       margin: "5px",
+                      border : '1px solid black'
                     }}
                   ></div>
                 )}

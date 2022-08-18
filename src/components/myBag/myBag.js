@@ -51,6 +51,7 @@ class MyBag extends React.Component {
     if (this.state.data === "") return <p>loading</p>;
     return (
       <div className={classes.main}>
+        <h2>Cart</h2>
         <div className={classes.cart}>
           {this.props.totalAmount !== 0 && (
             <CartProducts

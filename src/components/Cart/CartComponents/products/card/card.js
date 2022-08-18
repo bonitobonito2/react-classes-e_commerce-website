@@ -22,6 +22,7 @@ class CartProductCard extends React.Component {
       this.props.indexs,
       this.props.product.id
     );
+    console.log(this.props.indexs, "interesting");
     let choosenProperties = this.props.indexs.filter(
       (data) => data.id === this.props.product.id
     );
@@ -32,6 +33,15 @@ class CartProductCard extends React.Component {
     };
   }
   componentDidUpdate(prevProps, prevState) {
+    let information = [];
+
+    for (let i = 0; i < this.props.product.attributes.length; i++) {
+      let type = this.props.product.attributes[i].type;
+      let items = this.props.product.attributes[i].items;
+      let name = this.props.product.attributes[i].name;
+
+      information.push({ type, items, name });
+    }
     const filteredCount = getFilteredCount(
       this.props.indexs,
       this.props.product.id
@@ -42,11 +52,14 @@ class CartProductCard extends React.Component {
         this.setState({
           ...this.state,
           count: filteredCount[0].count,
+          information: information,
         });
       }
     }
   }
   render() {
+    console.log(this.state.choosenProperties, this.state.information);
+    if (this.state.choosenProperties.length === 0) return;
     return (
       <div className={classes.card}>
         <div className={classes.description}>
@@ -69,7 +82,7 @@ class CartProductCard extends React.Component {
           addToCart={this.props.addToCart}
           count={this.state.count}
           removeFromCart={this.props.removeFromCart}
-          takeData = {this.props.takeData}
+          takeData={this.props.takeData}
         />
 
         <div className={classes.img}>

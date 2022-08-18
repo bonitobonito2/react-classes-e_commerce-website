@@ -7,7 +7,7 @@ class AmountActions extends React.Component {
   };
   removeClickHandler = () => {
     this.props.removeFromCart(this.props.id);
-    this.props.takeData()
+    // this.props.takeData()
   };
 
   componentDidUpdate() {}

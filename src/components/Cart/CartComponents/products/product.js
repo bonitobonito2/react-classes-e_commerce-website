@@ -6,6 +6,7 @@ class CartProducts extends React.Component {
       <Fragment>
         {this.props.products.map((item) => (
           <CartProductCard
+          key = {item.product.id}
             removeFromCart={this.props.removeFromCart}
             addToCart={this.props.addToCart}
             currencyIndex={this.props.currencyIndex}
