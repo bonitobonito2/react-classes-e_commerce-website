@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import classes from "./card.module.css";
+import classes from '../Cart/CartComponents/products/card/card.module.css'
 export const parser = (arr, properties) => {
   return arr.map((data, mainIndex) => {
     if (data.type === "swatch") {

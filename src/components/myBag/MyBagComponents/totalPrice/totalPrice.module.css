@@ -1,20 +1,24 @@
 .totalPriceDiv {
   display: flex;
   flex-direction: row;
-  width: 90%;
-  max-height: 5%;
+  width: 10%;
 }
 
 .total {
   width: 50%;
   display: flex;
 }
-span {
-  color: black;
-  font-weight: 550;
-}
+
 .price {
   width: 50%;
   display: flex;
   justify-content: end;
+}
+.price span {
+  color: black;
+  font-weight: 550;
+}
+.total span {
+  color: black;
+  font-weight: 550;
 }

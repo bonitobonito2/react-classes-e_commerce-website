@@ -16,12 +16,22 @@ class NavBarCart extends React.Component {
   render() {
     return (
       <Fragment>
-        <img
+        <article />
+        {/* <img
           onClick={this.clickHandler}
           alt="cart"
           className={classes.img}
           src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
-        />
+        /> */}
+
+        <article
+          className={classes.img}
+          onClick={this.clickHandler}
+          
+        >
+          <span>1</span>
+        </article>
+
         {this.state.showCart && <Cart clickHandler={this.clickHandler} />}
       </Fragment>
     );

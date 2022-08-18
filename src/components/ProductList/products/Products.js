@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./Products.module.css";
 import { clickedProductIdActions } from "../../../store/clickedProductIdSlice";
-import Card from "../card/Card";
+import Card from "./card/Card";
 import { connect } from "react-redux";
 class Products extends React.Component {
   constructor(props) {

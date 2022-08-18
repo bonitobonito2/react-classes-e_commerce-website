@@ -1,15 +1,16 @@
-import React from "react";
-import classes from "./myBag.module.css";
+import React, { Fragment } from "react";
+import classes from "./Cart.module.css";
 import { connect } from "react-redux";
-
+import TotalAmount from "../Cart/CartComponents/totalAmount/totalAmount";
 import fetch from "../helper/fetch";
 import { getSingleProduct } from "../Schemas/getSingleProduct";
-import ChekoutButton from "./MyBagComponents/actions/checkoutButton";
-
-import CartProducts from "./MyBagComponents/products/product";
+import Modal from "../Modal/Modal";
+import ChekoutButton from "../Cart/CartComponents/actions/checkoutButton";
+import ViewBagButton from "../Cart/CartComponents/actions/viewBagButton";
+import CartProducts from "../Cart/CartComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";
-import TotalPrice from "./MyBagComponents/totalPrice/totalPrice";
-class MyBag extends React.Component {
+import TotalPrice from "../Cart/CartComponents/totalPrice/totalPrice";
+class LetsSee extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,8 +51,9 @@ class MyBag extends React.Component {
     console.log(this.state.symbol);
     if (this.state.data === "") return <p>loading</p>;
     return (
-      <div className={classes.main}>
+      <Fragment>
         <div className={classes.cart}>
+          <TotalAmount totalAmount={this.props.totalAmount} />
           {this.props.totalAmount !== 0 && (
             <CartProducts
               takeData={this.takeData}
@@ -65,16 +67,17 @@ class MyBag extends React.Component {
             />
           )}
         </div>
-
-        <TotalPrice
-          symbol={this.state.symbol}
-          totalPrice={this.state.totalPrice}
-        />
+        <center>
+          <TotalPrice
+            symbol={this.state.symbol}
+            totalPrice={this.state.totalPrice}
+          />
+        </center>
 
         <div className={classes.actions}>
           <ChekoutButton />
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -93,4 +96,4 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(cartSliceActions.removeProductFromCart({ id: id })),
   };
 };
-export default connect(mapStateToprops, mapDispatchToProps)(MyBag);
+export default connect(mapStateToprops, mapDispatchToProps)(LetsSee);

@@ -12,7 +12,7 @@ class ModalOverLay extends React.Component {
   render() {
     return (
       <div className={classes.modal}>
-        <div className={classes.content}>{this.props.children}</div>
+      {this.props.children}
       </div>
     );
   }

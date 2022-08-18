@@ -1,0 +1,14 @@
+.cart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+}
+.main {
+  width: 75%;
+  margin: 0 auto;
+}
