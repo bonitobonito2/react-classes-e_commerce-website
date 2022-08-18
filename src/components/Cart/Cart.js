@@ -10,6 +10,7 @@ import ViewBagButton from "./CartComponents/actions/viewBagButton";
 import CartProducts from "./CartComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";
 import TotalPrice from "./CartComponents/totalPrice/totalPrice";
+import { compose } from "redux";
 class Cart extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +25,7 @@ class Cart extends React.Component {
     let totalPrice = 0;
     let symbol = "";
     for (var i = 0; i < this.props.products.length; i++) {
+     
       let item = await fetch(getSingleProduct, {
         id: this.props.products[i].id,
       });
@@ -48,7 +50,8 @@ class Cart extends React.Component {
   }
 
   render() {
-    console.log(this.state.symbol);
+
+    // console.log(this.props.products,'xdxdxd')
     if (this.state.data === "") return <p>loading</p>;
     return (
       <Modal click={this.props.clickHandler}>
