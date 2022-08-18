@@ -1,12 +1,11 @@
-.cart {
-  
+.card {
   display: flex;
   width: 95%;
   align-items: center;
   justify-content: center;
-  padding-bottom: 15px;
-  padding-top: 10px;
-  padding-left: 15PX;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 15px;
   height: 250px;
 }
 .description {
@@ -15,7 +14,6 @@
   display: flex;
   flex-direction: column;
   font-size: 15px;
-
 }
 
 .img {
@@ -41,11 +39,10 @@
   align-items: center;
   justify-content: center;
 }
-.coast{
+.coast {
   color: black;
   font-weight: 500;
 }
-span{
+span {
   color: rgb(114, 113, 113);
 }
-

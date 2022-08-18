@@ -83,6 +83,7 @@ class ProductDescription extends React.Component {
           index3={this.state.indexForThird}
           addToCart={this.props.setClickedProductID}
           productId={this.props.id}
+          currencies = {this.props.data.prices}
         />
         <br />
         <div

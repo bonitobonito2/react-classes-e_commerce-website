@@ -11,8 +11,9 @@ class AddToCartButton extends React.Component {
       id: this.props.productId,
       index1: this.props.index1,
       index2: this.props.index2,
-      index3 : this.props.index3,
+      index3: this.props.index3,
       count: 1,
+      currencies: this.props.currencies,
     });
   };
   render() {

@@ -48,7 +48,7 @@ class CartProductCard extends React.Component {
   }
   render() {
     return (
-      <div className={classes.cart}>
+      <div className={classes.card}>
         <div className={classes.description}>
           <span className={classes.brandName}>{this.props.product.brand}</span>
           <span>{this.props.product.name}</span>
