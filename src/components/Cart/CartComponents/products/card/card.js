@@ -69,6 +69,7 @@ class CartProductCard extends React.Component {
           addToCart={this.props.addToCart}
           count={this.state.count}
           removeFromCart={this.props.removeFromCart}
+          takeData = {this.props.takeData}
         />
 
         <div className={classes.img}>

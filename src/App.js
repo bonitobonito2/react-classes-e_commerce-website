@@ -1,6 +1,7 @@
 import React from "react";
 import ProductList from "./components/ProductList/ProductList";
 import { Routes, Route, Navigate } from "react-router-dom";
+import MyBag from "./components/myBag/myBag";
 import store from "./store/store";
 import ProductDetailPage from "./components/DetailProductPage/productDetailPage";
 import NavBarWrapper from "./components/NavBarWrapper/NavBarWrapper";
@@ -42,11 +43,19 @@ export class App extends React.Component {
             path=":id"
             element={
               <NavBarWrapper>
-              <ProductDetailPage />
+                <ProductDetailPage />
               </NavBarWrapper>
             }
           />
         </Route>
+        <Route
+          path="/mybag"
+          element={
+            <NavBarWrapper>
+              <MyBag />
+            </NavBarWrapper>
+          }
+        />
 
         <Route
           path="*"

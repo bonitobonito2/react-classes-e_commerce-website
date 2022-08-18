@@ -5,8 +5,8 @@ import TotalAmount from "./CartComponents/totalAmount/totalAmount";
 import fetch from "../helper/fetch";
 import { getSingleProduct } from "../Schemas/getSingleProduct";
 import Modal from "../Modal/Modal";
-import ChekoutButton from "./CartComponents/products/card/actions/checkoutButton";
-import ViewBagButton from "./CartComponents/products/card/actions/viewBagButton";
+import ChekoutButton from './CartComponents/actions/checkoutButton'
+import ViewBagButton from "./CartComponents/actions/viewBagButton";
 import CartProducts from "./CartComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";
 import TotalPrice from "./CartComponents/totalPrice/totalPrice";
@@ -56,6 +56,7 @@ class Cart extends React.Component {
           <TotalAmount totalAmount={this.props.totalAmount} />
           {this.props.totalAmount !== 0 && (
             <CartProducts
+              takeData = {this.takeData}
               removeFromCart={this.props.removeFromCart}
               addToCart={this.props.addToCart}
               currencyIndex={this.props.currencyIndex}

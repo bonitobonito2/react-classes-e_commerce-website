@@ -11,6 +11,7 @@ class CartProducts extends React.Component {
             currencyIndex={this.props.currencyIndex}
             indexs={this.props.indexs}
             product={item.product}
+            takeData = {this.props.takeData}
           />
         ))}
       </Fragment>

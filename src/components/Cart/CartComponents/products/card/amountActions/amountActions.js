@@ -3,9 +3,11 @@ import classes from "./amountActions.module.css";
 class AmountActions extends React.Component {
   addClickHandler = () => {
     this.props.addToCart(this.props.id);
+    this.props.takeData()
   };
   removeClickHandler = () => {
     this.props.removeFromCart(this.props.id);
+    this.props.takeData()
   };
 
   componentDidUpdate() {}
