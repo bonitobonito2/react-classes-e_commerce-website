@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./myBag.module.css";
 import { connect } from "react-redux";
-import fetch from "../helper/fetch";
-import { getSingleProduct } from "../Schemas/getSingleProduct";
+import fetch from "../../helper/fetch";
+import { getSingleProduct } from "../../Schemas/getSingleProduct";
 import ChekoutButton from "./MyBagComponents/actions/checkoutButton";
 import CartProducts from "./MyBagComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";

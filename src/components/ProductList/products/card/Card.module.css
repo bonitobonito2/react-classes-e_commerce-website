@@ -3,10 +3,18 @@
   width: 400px;
   margin: 50px;
  cursor: pointer;
+ display: flex;
+ flex-direction: column;
+ padding: 2px;
+}
+.card:hover{
+    box-shadow: 5px 5px 5px 5px  rgba(218, 212, 212, 0.945);
+
 }
 .image {
+    align-self: center;
     height: 80%;
-    width: 100%;
+    width: 80%;
     background-repeat: no-repeat;
     background-position: center;
      background-size: cover; 

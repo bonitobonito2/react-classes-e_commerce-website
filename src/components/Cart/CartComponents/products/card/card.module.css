@@ -1,38 +1,54 @@
 .card {
   display: flex;
-  width: 100%;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 15px;
-  max-height: 250px;
- justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  width: 293px;
+  padding-top: 15px;
+  font-size: 15px;
+  flex: none;
+  order: 1;
+  height: 150px;
+  flex-grow: 0;
 }
+
 .description {
-  width: 50%;
-  padding-right: 10px;
   display: flex;
   flex-direction: column;
-  font-size: 15px;
-  height: fit-content;
+  align-items: flex-start;
+  padding: 0px;
+  width: 136px;
+  font-size: 16px;
+  flex: none;
+  height: 150px;
+  order: 0;
+  gap: 15px;
+  flex-grow: 0;
 }
 span {
   color: rgb(114, 113, 113);
 }
 
 .img {
-  width: 45%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
+  width: 121px;
+  height: 150px;
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
 }
 
 .img img {
-  width: 95%;
-  height: fit-content;
+  width: 121px;
+  height: 150px;
 }
 
 .idk {
   display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   flex-direction: row;
 }
 
@@ -49,4 +65,3 @@ span {
   color: black;
   font-weight: 500;
 }
-

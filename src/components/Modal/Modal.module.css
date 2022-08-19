@@ -9,16 +9,21 @@
   }
   
   .modal {
-   z-index: 30;
-   
-    background: white;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+    gap: 32px;
+    
     position: absolute;
-    width: 17vw;
-    max-height: 65vh;
-    right:  2vw;
-    top: 5vh;
-    /* animation: slide-down 300ms ease-out forwards; */
+    width: 325px;
+    max-height: 677px;
+    right:100px;
+    top: 78px;
+    
+    background: #FFFFFF;
+    z-index: 30;
   }
 
   @media only screen and (max-width: 1800px) {

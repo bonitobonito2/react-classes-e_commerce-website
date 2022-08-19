@@ -1,4 +1,4 @@
-import classes from '../DetailProductPage/product/productDescription/productDescription.module.css'
+import classes from '../components/DetailProductPage/product/productDescription/productDescription.module.css'
 import { Fragment } from 'react';
 const attributeParser = (index, attribute, stateIndex, changeFunction) => {
   return (

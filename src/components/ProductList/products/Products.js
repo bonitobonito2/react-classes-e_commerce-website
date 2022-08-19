@@ -16,8 +16,9 @@ class Products extends React.Component {
   render() {
     return (
       <Fragment>
-        <h2>Category name</h2>
+       <h2>Category name</h2>
         <div className={classes.products}>
+        
           {this.props.products.map((data, index) => {
             return (
               <Card

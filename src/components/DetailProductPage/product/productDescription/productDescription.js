@@ -3,7 +3,7 @@ import classes from "./productDescription.module.css";
 import { cartSliceActions } from "../../../../store/cartSlice";
 import { connect } from "react-redux";
 import AddToCartButton from "./addToCartButton/addToCartButton";
-import attributeParser from "../../../helper/attributeParser";
+import attributeParser from "../../../../helper/attributeParser";
 class ProductDescription extends React.Component {
   constructor(props) {
     super(props);

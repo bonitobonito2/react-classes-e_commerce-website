@@ -1,7 +1,7 @@
 import React from "react";
 import AmountActions from "./amountActions/amountActions";
 import classes from "./card.module.css";
-import { parser } from "../../../../helper/CartAttributeParser";
+import { parser } from "../../../../../helper/CartAttributeParser";
 
 //get right count after every update of product count
 const getFilteredCount = (arr, id) => arr.filter((info) => info.id === id);

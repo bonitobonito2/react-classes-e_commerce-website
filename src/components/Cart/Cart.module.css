@@ -4,12 +4,13 @@
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
-    max-height: 55vh;
+    
 }
 
 .actions{
     display: flex;
     justify-content: center;
+    width: 100%;
     max-height: 10vh;
     align-items: center;
     padding-bottom: 20px;

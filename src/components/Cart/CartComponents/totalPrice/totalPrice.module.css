@@ -1,7 +1,7 @@
 .totalPriceDiv {
   display: flex;
   flex-direction: row;
-  width: 90%;
+  width: 100%;
   max-height: 5%;
 }
 

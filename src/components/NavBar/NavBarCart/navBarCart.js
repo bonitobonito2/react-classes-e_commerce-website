@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./navBarCart.module.css";
 import { connect } from "react-redux";
+import icon from '../../../pictures/Vector.png'
 import Cart from "../../Cart/Cart";
 class NavBarCart extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class NavBarCart extends React.Component {
   render() {
     return (
       <Fragment>
-        <article className={classes.img} onClick={this.clickHandler}>
+        <article className={classes.img}  onClick={this.clickHandler}>
           {this.props.totalAmount !== 0 && <span>{this.props.totalAmount}</span>}
         </article>
 

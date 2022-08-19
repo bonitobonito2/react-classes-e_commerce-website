@@ -1,18 +1,38 @@
-.navBar{
-    z-index: 10000;
-    width: 100vw;
-    height: 5vh;
+.navBar {
+  position: absolute;
+  width:100%;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+  background-color: rgb(255, 255, 255);
+  z-index: 10000;
+
+  /* 
     position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgb(255, 255, 255);
-    display: flex;
+width: 1440px;
+height: 80px;
+left: 0px;
+top: 0px; */
 }
-.select{
-    width: 70%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 15px;
-    color: rgb(24, 177, 37);
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 22px;
+
+  position: absolute;
+  width: 204px;
+  height: 40px;
+  right: 101px;
+  top: 23px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 13.2%;
+  bottom: 13.2%;
 }

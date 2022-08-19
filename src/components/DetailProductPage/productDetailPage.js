@@ -1,8 +1,8 @@
 import React from "react";
-import fetch from "../helper/fetch";
+import fetch from "../../helper/fetch";
 import { connect } from "react-redux";
-import { getSingleProduct } from "../Schemas/getSingleProduct";
-import { withRouter } from "../helper/withRouter";
+import { getSingleProduct } from "../../Schemas/getSingleProduct";
+import { withRouter } from "../../helper/withRouter";
 import ProductDetails from "./product/productDetails";
 class ProductDetailPage extends React.Component {
   constructor(props) {

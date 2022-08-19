@@ -3,22 +3,49 @@ import { NavLink } from "react-router-dom";
 import classes from "./Categories.module.css";
 
 class Categories extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      active : 'all'
+    }
+  }
+
+  clickHandler = (data)=>{
+    this.setState({
+      ...this.state,
+      active : data
+    })
+  }
   render() {
-    const categoryArr = ["all", "clothes", "tech"];
+    
     return (
-      <div className={classes.categories}>
-        {categoryArr.map((data, index) => (
-          <div key={index}>
-            <NavLink
-              className={(navData) =>
-                navData.isActive ? classes.active : classes.unActive
-              }
-              to={`/productList/category/${data}`}
-            >
-              {data}
-            </NavLink>
-          </div>
-        ))}
+      <div  className={classes.categories}>
+        <div onClick={()=>this.clickHandler('all')} className={this.state.active === 'all' &&classes.cat}>
+          <NavLink
+            className={classes.unActive}
+            to={`/productList/category/all`}
+          >
+            all
+          </NavLink>
+        </div>
+
+        <div  onClick={()=>this.clickHandler('clothes')} className={this.state.active === 'clothes' &&classes.cat}>
+          <NavLink
+            className={classes.unActive}
+            to={`/productList/category/clothes`}
+          >
+            clothes
+          </NavLink>
+        </div>
+
+        <div onClick={()=>this.clickHandler('tech')} className={this.state.active === 'tech' &&classes.cat}>
+          <NavLink
+            className={classes.unActive}
+            to={`/productList/category/tech`}
+          >
+            tech
+          </NavLink>
+        </div>
       </div>
     );
   }

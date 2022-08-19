@@ -1,6 +1,6 @@
 import React from "react";
-import fetch from "../../helper/fetch";
-import { getCurrencies } from "../../Schemas/getCurrencies";
+import fetch from "../../../helper/fetch";
+import { getCurrencies } from "../../../Schemas/getCurrencies";
 import classes from "./Select.module.css";
 import { currencyActions } from "../../../store/currencieSlice";
 import { connect } from "react-redux/es/exports";

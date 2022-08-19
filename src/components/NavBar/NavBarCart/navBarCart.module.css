@@ -1,6 +1,6 @@
 .img{
-    width: 30px;
-    height: 30px;
+    width: 70px;
+    height: 70px;
    
    
     background-repeat: no-repeat;
@@ -8,7 +8,7 @@
      background-size: cover; 
     display: grid;
     place-items: center;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/263/263142.png');
+    background-image: url('https://static.thenounproject.com/png/1074958-200.png'); 
     cursor: pointer;
 }
 

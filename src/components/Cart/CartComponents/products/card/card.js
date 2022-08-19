@@ -1,7 +1,7 @@
 import React from "react";
 import AmountActions from "./amountActions/amountActions";
 import classes from "./card.module.css";
-import { parser } from "../../../../helper/CartAttributeParser";
+import { parser } from "../../../../../helper/CartAttributeParser";
 
 //get right count after every update of product count
 const getFilteredCount = (arr, id) => arr.filter((info) => info.id === id);
@@ -62,6 +62,7 @@ class CartProductCard extends React.Component {
     if (this.state.choosenProperties.length === 0) return;
     return (
       <div className={classes.card}>
+     
         <div className={classes.description}>
           <span className={classes.brandName}>{this.props.product.brand}</span>
           <span>{this.props.product.name}</span>

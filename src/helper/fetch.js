@@ -1,4 +1,4 @@
-import client from "../..";
+import client from "../";
 
 const fetch = async (schema, variable) => {
   let result = await client.query({

@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { getProducts } from "../Schemas/getProducts";
+import { getProducts } from "../../Schemas/getProducts";
 import Products from "./products/Products";
-import fetch from "../helper/fetch";
-import { withRouter } from "../helper/withRouter";
+import fetch from "../../helper/fetch";
+import { withRouter } from "../../helper/withRouter";
 class ProductList extends React.Component {
   constructor(props) {
     super(props);

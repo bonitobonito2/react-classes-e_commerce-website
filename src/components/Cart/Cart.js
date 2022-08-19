@@ -2,10 +2,10 @@ import React from "react";
 import classes from "./Cart.module.css";
 import { connect } from "react-redux";
 import TotalAmount from "./CartComponents/totalAmount/totalAmount";
-import fetch from "../helper/fetch";
-import { getSingleProduct } from "../Schemas/getSingleProduct";
+import fetch from "../../helper/fetch";
+import { getSingleProduct } from "../../Schemas/getSingleProduct";
 import Modal from "../Modal/Modal";
-import ChekoutButton from './CartComponents/actions/checkoutButton'
+import ChekoutButton from "./CartComponents/actions/checkoutButton";
 import ViewBagButton from "./CartComponents/actions/viewBagButton";
 import CartProducts from "./CartComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";
@@ -25,7 +25,6 @@ class Cart extends React.Component {
     let totalPrice = 0;
     let symbol = "";
     for (var i = 0; i < this.props.products.length; i++) {
-     
       let item = await fetch(getSingleProduct, {
         id: this.props.products[i].id,
       });
@@ -57,7 +56,7 @@ class Cart extends React.Component {
           <TotalAmount totalAmount={this.props.totalAmount} />
           {this.props.totalAmount !== 0 && (
             <CartProducts
-              takeData = {this.takeData}
+              takeData={this.takeData}
               removeFromCart={this.props.removeFromCart}
               addToCart={this.props.addToCart}
               currencyIndex={this.props.currencyIndex}
@@ -68,12 +67,11 @@ class Cart extends React.Component {
             />
           )}
         </div>
-        <center>
-          <TotalPrice
-            symbol={this.state.symbol}
-            totalPrice={this.state.totalPrice}
-          />
-        </center>
+
+        <TotalPrice
+          symbol={this.state.symbol}
+          totalPrice={this.state.totalPrice}
+        />
 
         <div className={classes.actions}>
           <ViewBagButton />

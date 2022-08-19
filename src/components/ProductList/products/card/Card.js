@@ -11,6 +11,7 @@ class Card extends React.Component {
   render() {
     return (
       <div onClick={this.clickListener} className={classes.card}>
+        
         <article
           className={classes.image}
           style={{ backgroundImage: `url(${this.props.img})` }}
