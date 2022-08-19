@@ -22,3 +22,12 @@
   color: black;
   font-weight: 550;
 }
+.taxesDiv{
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+}
+.taxPrice {
+  color: black;
+  font-weight: 550;
+}

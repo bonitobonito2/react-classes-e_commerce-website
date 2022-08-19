@@ -9,6 +9,7 @@
     display: grid;
     place-items: center;
     background-image: url('https://cdn-icons-png.flaticon.com/512/263/263142.png');
+    cursor: pointer;
 }
 
 .img span{

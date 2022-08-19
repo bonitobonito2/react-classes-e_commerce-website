@@ -1,11 +1,9 @@
 import React from "react";
 import classes from "./myBag.module.css";
 import { connect } from "react-redux";
-
 import fetch from "../helper/fetch";
 import { getSingleProduct } from "../Schemas/getSingleProduct";
 import ChekoutButton from "./MyBagComponents/actions/checkoutButton";
-
 import CartProducts from "./MyBagComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";
 import TotalPrice from "./MyBagComponents/totalPrice/totalPrice";
@@ -51,7 +49,9 @@ class MyBag extends React.Component {
     if (this.state.data === "") return <p>loading</p>;
     return (
       <div className={classes.main}>
-        <h2>Cart</h2>
+      
+        <span className={classes.cartName}>Cart</span>
+     
         <div className={classes.cart}>
           {this.props.totalAmount !== 0 && (
             <CartProducts
@@ -66,14 +66,16 @@ class MyBag extends React.Component {
             />
           )}
         </div>
-
+            <br/>
         <TotalPrice
           symbol={this.state.symbol}
           totalPrice={this.state.totalPrice}
+          quantity = {this.props.totalAmount}
         />
 
         <div className={classes.actions}>
-          <ChekoutButton />
+          {this.state.data.length !== 0 &&<ChekoutButton />}
+          {this.state.data.length === 0 &&<p>No products added yet.</p>}
         </div>
       </div>
     );

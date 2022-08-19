@@ -1,3 +1,9 @@
+.main {
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+  top: 50px;
+}
 .cart {
   width: 100%;
   display: flex;
@@ -7,8 +13,11 @@
 
 .actions {
   display: flex;
+  width: fit-content;
 }
-.main {
-  width: 75%;
-  margin: 0 auto;
+
+.cartName {
+  font-size: 25px;
+  color: black;
+  font-weight: 600;
 }

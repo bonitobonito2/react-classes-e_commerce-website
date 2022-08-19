@@ -50,8 +50,6 @@ class Cart extends React.Component {
   }
 
   render() {
-
-    // console.log(this.props.products,'xdxdxd')
     if (this.state.data === "") return <p>loading</p>;
     return (
       <Modal click={this.props.clickHandler}>
