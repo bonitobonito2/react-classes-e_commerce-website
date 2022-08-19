@@ -18,22 +18,20 @@
    
 }
 
-.active{
-    text-decoration: none;
 
-    color: rgb(8, 187, 8);
-   
-    border-bottom: 2px solid  rgb(8, 187, 8);
-    margin-bottom: 40px;
-    font-size: 20px;
-}
 
 .categories a{
     margin: 10px;
     padding-bottom: 8px;
 }
 
-.cat{
+.active{
     height: 100%;
     border-bottom: 2px solid  rgb(8, 187, 8);
+    color: rgb(8, 187, 8);
+
 }
+.active a{
+    color: rgb(8, 187, 8);
+}
+

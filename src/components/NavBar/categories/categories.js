@@ -20,7 +20,7 @@ class Categories extends React.Component {
     
     return (
       <div  className={classes.categories}>
-        <div onClick={()=>this.clickHandler('all')} className={this.state.active === 'all' &&classes.cat}>
+        <div onClick={()=>this.clickHandler('all')} className={this.state.active === 'all' &&classes.active}>
           <NavLink
             className={classes.unActive}
             to={`/productList/category/all`}
@@ -29,7 +29,7 @@ class Categories extends React.Component {
           </NavLink>
         </div>
 
-        <div  onClick={()=>this.clickHandler('clothes')} className={this.state.active === 'clothes' &&classes.cat}>
+        <div  onClick={()=>this.clickHandler('clothes')} className={this.state.active === 'clothes' &&classes.active}>
           <NavLink
             className={classes.unActive}
             to={`/productList/category/clothes`}
@@ -38,7 +38,7 @@ class Categories extends React.Component {
           </NavLink>
         </div>
 
-        <div onClick={()=>this.clickHandler('tech')} className={this.state.active === 'tech' &&classes.cat}>
+        <div onClick={()=>this.clickHandler('tech')} className={this.state.active === 'tech' &&classes.active}>
           <NavLink
             className={classes.unActive}
             to={`/productList/category/tech`}
