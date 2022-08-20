@@ -7,62 +7,50 @@ import { parser } from "../../../../../helper/CartAttributeParser";
 const getFilteredCount = (arr, id) => arr.filter((info) => info.id === id);
 
 class CartProductCard extends React.Component {
-  constructor(props) {
-    super(props);
-
+  cardStateInformationFilter = () => {
     let information = [];
-    for (let i = 0; i < this.props.product.attributes.length; i++) {
-      let type = this.props.product.attributes[i].type;
-      let items = this.props.product.attributes[i].items;
-      let name = this.props.product.attributes[i].name;
+    const attributes = this.props.product.attributes;
+    const allChoosenProperties = this.props.indexs;
+    const id = this.props.product.id;
+    for (let i = 0; i < attributes.length; i++) {
+      let type = attributes[i].type;
+      let items = attributes[i].items;
+      let name = attributes[i].name;
 
       information.push({ type, items, name });
     }
-    const filteredCount = getFilteredCount(
-      this.props.indexs,
-      this.props.product.id
+    const filteredCount = getFilteredCount(allChoosenProperties, id);
+    let choosenProperties = allChoosenProperties.filter(
+      (data) => data.id === id
     );
-    console.log(this.props.indexs, "interesting");
-    let choosenProperties = this.props.indexs.filter(
-      (data) => data.id === this.props.product.id
-    );
-    this.state = {
+    return {
       information,
       choosenProperties,
-      count: filteredCount[0].count,
+      count: filteredCount.length !== 0 ? filteredCount[0].count : "",
     };
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = this.cardStateInformationFilter();
   }
+
   componentDidUpdate(prevProps, prevState) {
-    let information = [];
-
-    for (let i = 0; i < this.props.product.attributes.length; i++) {
-      let type = this.props.product.attributes[i].type;
-      let items = this.props.product.attributes[i].items;
-      let name = this.props.product.attributes[i].name;
-
-      information.push({ type, items, name });
-    }
-    const filteredCount = getFilteredCount(
-      this.props.indexs,
-      this.props.product.id
-    );
-
-    if (filteredCount.length !== 0) {
-      if (prevState.count !== filteredCount[0].count) {
+    const { information, count } = this.cardStateInformationFilter();
+    if (count !== "") {
+      if (prevState.count !== count) {
         this.setState({
           ...this.state,
-          count: filteredCount[0].count,
+          count: count,
           information: information,
         });
       }
     }
   }
   render() {
-    console.log(this.state.choosenProperties, this.state.information);
     if (this.state.choosenProperties.length === 0) return;
     return (
       <div className={classes.card}>
-     
         <div className={classes.description}>
           <span className={classes.brandName}>{this.props.product.brand}</span>
           <span>{this.props.product.name}</span>

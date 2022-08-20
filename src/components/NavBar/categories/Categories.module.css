@@ -1,37 +1,32 @@
 .categories {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    
-    position: absolute;
-    width: 234px;
-    height: 56px;
-    left: 101px;
-    bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: absolute;
+  width: 234px;
+  height: 56px;
+  left: 101px;
+  bottom: 0px;
 }
 
-.unActive{
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-   
+.unActive {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
 }
 
-
-
-.categories a{
-    margin: 10px;
-    padding-bottom: 8px;
+.categories a {
+  margin: 10px;
+  padding-bottom: 8px;
 }
 
-.active{
-    height: 100%;
-    border-bottom: 2px solid  rgb(8, 187, 8);
-    color: rgb(8, 187, 8);
-
+.active {
+  height: 100%;
+  border-bottom: 2px solid rgb(8, 187, 8);
+  color: rgb(8, 187, 8);
 }
-.active a{
-    color: rgb(8, 187, 8);
+.active a {
+  color: rgb(8, 187, 8);
 }
-

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classes from "./Cart.module.css";
 import { connect } from "react-redux";
 import TotalAmount from "./CartComponents/totalAmount/totalAmount";
@@ -52,31 +52,40 @@ class Cart extends React.Component {
     if (this.state.data === "") return <p>loading</p>;
     return (
       <Modal click={this.props.clickHandler}>
-        <div className={classes.cart}>
-          <TotalAmount totalAmount={this.props.totalAmount} />
-          {this.props.totalAmount !== 0 && (
-            <CartProducts
-              takeData={this.takeData}
-              removeFromCart={this.props.removeFromCart}
-              addToCart={this.props.addToCart}
-              currencyIndex={this.props.currencyIndex}
-              indexs={this.props.products}
-              products={this.state.data}
-              symnol={this.state.symbol}
+        {this.props.totalAmount !== 0 && (
+          <Fragment>
+            <div className={classes.cart}>
+              <TotalAmount totalAmount={this.props.totalAmount} />
+
+              <CartProducts
+                takeData={this.takeData}
+                removeFromCart={this.props.removeFromCart}
+                addToCart={this.props.addToCart}
+                currencyIndex={this.props.currencyIndex}
+                indexs={this.props.products}
+                products={this.state.data}
+                symnol={this.state.symbol}
+                totalPrice={this.state.totalPrice}
+              />
+            </div>
+
+            <TotalPrice
+              symbol={this.state.symbol}
               totalPrice={this.state.totalPrice}
             />
-          )}
-        </div>
 
-        <TotalPrice
-          symbol={this.state.symbol}
-          totalPrice={this.state.totalPrice}
-        />
+            <div className={classes.actions}>
+              <ViewBagButton />
+              <ChekoutButton />
+            </div>
+          </Fragment>
+        )}
 
-        <div className={classes.actions}>
-          <ViewBagButton />
-          <ChekoutButton />
-        </div>
+        {this.props.totalAmount === 0 && (
+          <div className={classes.cart}>
+            <p>No products in the cart</p>
+          </div>
+        )}
       </Modal>
     );
   }

@@ -61,7 +61,7 @@ class CartProductCard extends React.Component {
           </span>
 
           {this.state.information &&
-            parser(this.state.information, this.state.choosenProperties, 'bag')}
+            parser(this.state.information, this.state.choosenProperties, "bag")}
         </div>
 
         <AmountActions
@@ -69,7 +69,7 @@ class CartProductCard extends React.Component {
           addToCart={this.props.addToCart}
           count={this.state.count}
           removeFromCart={this.props.removeFromCart}
-          takeData = {this.props.takeData}
+          takeData={this.props.takeData}
         />
 
         <div className={classes.img}>
