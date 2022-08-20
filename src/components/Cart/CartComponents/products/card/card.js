@@ -7,6 +7,7 @@ import { parser } from "../../../../../helper/CartAttributeParser";
 const getFilteredCount = (arr, id) => arr.filter((info) => info.id === id);
 
 class CartProductCard extends React.Component {
+  
   cardStateInformationFilter = () => {
     let information = [];
     const attributes = this.props.product.attributes;
