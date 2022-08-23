@@ -6,10 +6,9 @@ import { parser } from "../../../../../helper/CartAttributeParser";
 //get right count after every update of product count
 const getFilteredCount = (arr, id) => arr.filter((info) => info.id === id);
 
-class CartProductCard extends React.Component {
+class Card extends React.Component {
   constructor(props) {
     super(props);
-
     let information = [];
     for (let i = 0; i < this.props.product.attributes.length; i++) {
       let type = this.props.product.attributes[i].type;
@@ -47,6 +46,7 @@ class CartProductCard extends React.Component {
     }
   }
   render() {
+    console.log('vax')
     return (
       <div className={classes.card}>
         <div className={classes.description}>
@@ -80,4 +80,4 @@ class CartProductCard extends React.Component {
   }
 }
 
-export default CartProductCard;
+export default Card;

@@ -19,7 +19,8 @@ class AddToCartButton extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.clickListener} className={classes.addCart}>
+        {!this.props.inStock && <p>The product is out of stock.</p>}
+        <button disabled = {!this.props.inStock} onClick={this.clickListener} className={classes.addCart}>
           add to cart
         </button>
       </div>

@@ -23,7 +23,6 @@
   flex: none;
   height: 150px;
   order: 0;
-  gap: 15px;
   flex-grow: 0;
 }
 span {
@@ -45,11 +44,10 @@ span {
   height: 150px;
 }
 
-.idk {
+.attributeDiv {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
   flex-direction: row;
+  gap: 5px;
 }
 
 .borderDiv {

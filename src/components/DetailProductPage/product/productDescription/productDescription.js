@@ -55,6 +55,7 @@ class ProductDescription extends React.Component {
       );
   };
   render() {
+    
     return (
       <div className={classes.main}>
         <div>
@@ -84,6 +85,7 @@ class ProductDescription extends React.Component {
           addToCart={this.props.setClickedProductID}
           productId={this.props.id}
           currencies = {this.props.data.prices}
+          inStock = {this.props.data.inStock}
         />
         <br />
         <div

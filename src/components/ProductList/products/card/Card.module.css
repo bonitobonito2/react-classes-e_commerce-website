@@ -2,27 +2,27 @@
   height: 450px;
   width: 400px;
   margin: 50px;
- cursor: pointer;
- display: flex;
- flex-direction: column;
- padding: 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
 }
-.card:hover{
-    box-shadow: 5px 5px 5px 5px  rgba(218, 212, 212, 0.945);
-
+.card:hover {
+  box-shadow: 5px 5px 5px 5px rgba(218, 212, 212, 0.945);
+ opacity: 25s;
 }
 .image {
-    align-self: center;
-    height: 80%;
-    width: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-     background-size: cover; 
-    display: grid;
-    place-items: center;
+  align-self: center;
+  height: 80%;
+  width: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
 }
 
-span{
-    font-weight: 400;
-    color: gray;
+span {
+  font-weight: 400;
+  color: gray;
 }

@@ -7,6 +7,7 @@ import ChekoutButton from "./MyBagComponents/actions/checkoutButton";
 import CartProducts from "./MyBagComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";
 import TotalPrice from "./MyBagComponents/totalPrice/totalPrice";
+
 class MyBag extends React.Component {
   constructor(props) {
     super(props);
@@ -49,13 +50,11 @@ class MyBag extends React.Component {
     if (this.state.data === "") return <p>loading</p>;
     return (
       <div className={classes.main}>
-      
         <span className={classes.cartName}>Cart</span>
-     
+
         <div className={classes.cart}>
           {this.props.totalAmount !== 0 && (
             <CartProducts
-              takeData={this.takeData}
               removeFromCart={this.props.removeFromCart}
               addToCart={this.props.addToCart}
               currencyIndex={this.props.currencyIndex}
@@ -66,16 +65,16 @@ class MyBag extends React.Component {
             />
           )}
         </div>
-            <br/>
+        <br />
         <TotalPrice
           symbol={this.state.symbol}
           totalPrice={this.state.totalPrice}
-          quantity = {this.props.totalAmount}
+          quantity={this.props.totalAmount}
         />
 
         <div className={classes.actions}>
-          {this.state.data.length !== 0 &&<ChekoutButton />}
-          {this.state.data.length === 0 &&<p>No products added yet.</p>}
+          {this.state.data.length !== 0 && <ChekoutButton />}
+          {this.state.data.length === 0 && <p>No products added yet.</p>}
         </div>
       </div>
     );

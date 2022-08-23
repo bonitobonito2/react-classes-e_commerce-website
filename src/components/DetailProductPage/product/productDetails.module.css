@@ -2,7 +2,7 @@
     position: absolute;
     top: 120px;
     margin: 0 auto;
-    width: 90vw;
+    width: 100vw;
     height: 70vh;
     display: grid;
     grid-template-columns: 20% 40% 40%;

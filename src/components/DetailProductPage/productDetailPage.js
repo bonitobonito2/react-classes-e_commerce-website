@@ -22,6 +22,7 @@ class ProductDetailPage extends React.Component {
   }
 
   render() {
+    
     if (this.state.data == "") return <p>error</p>;
     return <ProductDetails productDetails={this.state} />;
   }
