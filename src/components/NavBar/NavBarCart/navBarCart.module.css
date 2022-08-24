@@ -1,25 +1,23 @@
-.img{
-    width: 70px;
-    height: 70px;
-   
-   
-    background-repeat: no-repeat;
-    background-position: center;
-     background-size: cover; 
-    display: grid;
-    place-items: center;
-    background-image: url('https://static.thenounproject.com/png/1074958-200.png'); 
-    cursor: pointer;
+.img {
+  width: 70px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  background-image: url("https://static.thenounproject.com/png/1074958-200.png");
+  cursor: pointer;
 }
 
-.img span{
-    font-size: 12px;
-   padding-left: 5px;
-   padding-right: 5px;
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-    position: relative;
-    bottom: 10px;
-    left: 12px;
+.img span {
+  font-size: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  position: relative;
+  bottom: 10px;
+  left: 12px;
 }
