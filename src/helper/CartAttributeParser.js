@@ -36,17 +36,28 @@ export const parser = (arr, properties, additionalInfo) => {
           {additionalInfo === "bag" ? (
             <span style={{ color: "black" }}>{arr[mainIndex].name}:</span>
           ) : (
-            <span>{arr[mainIndex].name}:</span>
+            <span style={{ fontSize: "15px" }}>{arr[mainIndex].name}:</span>
           )}
 
           {data.items.map((info, index) => {
             if (index === properties[mainIndex]) {
-              return (
+              return additionalInfo === "bag" ? (
                 <button
                   style={{
                     backgroundColor: "black",
                     color: "white",
-                    margin: "4px",
+                    margin: "3px",
+                  }}
+                >
+                  {info.value}
+                </button>
+              ) : (
+                <button
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                   margin : '3px',
+                   height : '20px'
                   }}
                 >
                   {info.value}

@@ -4,7 +4,6 @@ import classes from "./card.module.css";
 import { parser } from "../../../../../helper/CartAttributeParser";
 import AmountActionsForBag from "./amountActions/amountActionsForBag";
 
-
 class Card extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +12,7 @@ class Card extends React.Component {
       props.product;
 
     const myProduct = props.fullProduct.find((e) => e.product.id === id);
-    console.log(myProduct)
+    console.log(myProduct);
     const defaultAttributes = myProduct.product.attributes;
     const gallery = myProduct.product.gallery;
     const prices = myProduct.product.prices;
@@ -30,9 +29,43 @@ class Card extends React.Component {
       currencies,
       gallery,
       prices,
+      imageIndex: 0,
     };
   }
+  changeImageHandler = (type) => {
+    let galleryLength = this.state.gallery.length;
+    let imageIndex = this.state.imageIndex;
 
+    if (type === ">") {
+      if (imageIndex < galleryLength) {
+        this.setState({
+          ...this.state,
+          imageIndex: (this.state.imageIndex += 1),
+        });
+      }
+      if (imageIndex === galleryLength - 1) {
+        this.setState({
+          ...this.state,
+          imageIndex: 0,
+        });
+      }
+    }else if(type === '<'){
+      if(imageIndex > 0){
+        this.setState({
+          ...this.state,
+          imageIndex: (this.state.imageIndex -= 1),
+        });
+      }
+      if (imageIndex === 0){
+        this.setState({
+          ...this.state,
+          imageIndex: galleryLength-1,
+        });
+      }
+    }
+
+    
+  };
   render() {
     return (
       <div className={classes.card}>
@@ -45,7 +78,7 @@ class Card extends React.Component {
           </span>
 
           {this.state.product &&
-            parser(this.state.defaultAttributes, this.state.choosenAttributes)}
+            parser(this.state.defaultAttributes, this.state.choosenAttributes,'bag')}
         </div>
 
         <AmountActionsForBag
@@ -58,7 +91,11 @@ class Card extends React.Component {
         />
 
         <div className={classes.img}>
-          <img src={this.state.gallery[0]} />
+          <img src={this.state.gallery[this.state.imageIndex]} />
+          <div className={classes.imageChangeButtons}>
+            <button onClick={()=>this.changeImageHandler('<')}>{"<"}</button>
+            <button onClick={() => this.changeImageHandler(">")}>{">"}</button>
+          </div>
         </div>
       </div>
     );
