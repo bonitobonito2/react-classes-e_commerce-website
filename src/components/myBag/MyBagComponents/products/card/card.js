@@ -12,7 +12,6 @@ class Card extends React.Component {
       props.product;
 
     const myProduct = props.fullProduct.find((e) => e.product.id === id);
-    console.log(myProduct);
     const defaultAttributes = myProduct.product.attributes;
     const gallery = myProduct.product.gallery;
     const prices = myProduct.product.prices;
@@ -49,22 +48,20 @@ class Card extends React.Component {
           imageIndex: 0,
         });
       }
-    }else if(type === '<'){
-      if(imageIndex > 0){
+    } else if (type === "<") {
+      if (imageIndex > 0) {
         this.setState({
           ...this.state,
           imageIndex: (this.state.imageIndex -= 1),
         });
       }
-      if (imageIndex === 0){
+      if (imageIndex === 0) {
         this.setState({
           ...this.state,
-          imageIndex: galleryLength-1,
+          imageIndex: galleryLength - 1,
         });
       }
     }
-
-    
   };
   render() {
     return (
@@ -78,7 +75,11 @@ class Card extends React.Component {
           </span>
 
           {this.state.product &&
-            parser(this.state.defaultAttributes, this.state.choosenAttributes,'bag')}
+            parser(
+              this.state.defaultAttributes,
+              this.state.choosenAttributes,
+              "bag"
+            )}
         </div>
 
         <AmountActionsForBag
@@ -93,7 +94,7 @@ class Card extends React.Component {
         <div className={classes.img}>
           <img src={this.state.gallery[this.state.imageIndex]} />
           <div className={classes.imageChangeButtons}>
-            <button onClick={()=>this.changeImageHandler('<')}>{"<"}</button>
+            <button onClick={() => this.changeImageHandler("<")}>{"<"}</button>
             <button onClick={() => this.changeImageHandler(">")}>{">"}</button>
           </div>
         </div>

@@ -9,7 +9,7 @@ class ProductPictures extends React.Component {
     return (
       <div className={classes.list}>
         {this.props.pictures.map((imgUrl, arrIndex) => (
-          <div className={classes.imageDiv}>
+          <div key={arrIndex} className={classes.imageDiv}>
             {this.props.index === arrIndex ? (
               <img
                 onClick={() => this.props.setIndex(arrIndex)}

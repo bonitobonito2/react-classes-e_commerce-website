@@ -8,7 +8,7 @@ const attributeParser = (index, attribute, stateIndex, changeFunction) => {
         {attribute[index].items.map((data, index1) => {
           if (attribute[index].type === "swatch") {
             return (
-              <Fragment>
+              <Fragment key={index1}>
                 {index1 === stateIndex ? (
                   <div
                     style={{
@@ -46,7 +46,7 @@ const attributeParser = (index, attribute, stateIndex, changeFunction) => {
             );
           } else {
             return (
-              <Fragment>
+              <Fragment key={index1}>
                 {index1 === stateIndex ? (
                   <button
                     onClick={() => changeFunction(index1)}

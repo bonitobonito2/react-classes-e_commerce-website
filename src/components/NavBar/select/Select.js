@@ -11,7 +11,6 @@ class SelectCurrency extends React.Component {
   }
   selectChangeHandler = (event) => {
     let data = event.target.value.split(" ");
-    console.log(data);
     this.props.changeCurrency(data[0]);
     this.setState({ ...this.state, symbol: data[1] });
   };
@@ -27,14 +26,14 @@ class SelectCurrency extends React.Component {
     if (this.state === null) return 0;
     return (
       <div className={classes.selectDiv}>
-        <select  className={classes.select} onChange={this.selectChangeHandler}>
+        <select className={classes.select} onChange={this.selectChangeHandler}>
           {this.state.data.currencies.map((data, index) => (
             <option
               className={classes.option}
               key={index}
               value={`${index} ${data.symbol}`}
             >
-             {`${data.symbol} ${data.label}`}
+              {`${data.symbol} ${data.label}`}
             </option>
           ))}
         </select>

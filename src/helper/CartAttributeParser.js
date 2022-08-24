@@ -3,7 +3,7 @@ export const parser = (arr, properties, additionalInfo) => {
   return arr.map((data, mainIndex) => {
     if (data.type === "swatch") {
       return (
-        <div className={classes.attributeDiv}>
+        <div key={mainIndex + Math.random()} className={classes.attributeDiv}>
           {additionalInfo === "bag" ? (
             <span style={{ color: "black" }}>{arr[mainIndex].name}:</span>
           ) : (
@@ -13,7 +13,7 @@ export const parser = (arr, properties, additionalInfo) => {
           {data.items.map((color, index) => {
             if (index === properties[mainIndex]) {
               return (
-                <div className={classes.borderDiv}>
+                <div key={index + Math.random()} className={classes.borderDiv}>
                   <div
                     style={{
                       backgroundColor: `${color.value}`,
@@ -32,7 +32,7 @@ export const parser = (arr, properties, additionalInfo) => {
     }
     if (data.type === "text") {
       return (
-        <div className={classes.attributeDiv}>
+        <div key={mainIndex + Math.random()} className={classes.attributeDiv}>
           {additionalInfo === "bag" ? (
             <span style={{ color: "black" }}>{arr[mainIndex].name}:</span>
           ) : (
@@ -43,6 +43,7 @@ export const parser = (arr, properties, additionalInfo) => {
             if (index === properties[mainIndex]) {
               return additionalInfo === "bag" ? (
                 <button
+                  key={index + Math.random()}
                   style={{
                     backgroundColor: "black",
                     color: "white",
@@ -53,11 +54,12 @@ export const parser = (arr, properties, additionalInfo) => {
                 </button>
               ) : (
                 <button
+                  key={index + Math.random()}
                   style={{
                     backgroundColor: "black",
                     color: "white",
-                   margin : '3px',
-                   height : '20px'
+                    margin: "3px",
+                    height: "20px",
                   }}
                 >
                   {info.value}

@@ -19,7 +19,6 @@ const cartSlice = createSlice({
         );
         let existingItem = myState[existingProductIndex];
 
-        console.log(existingItem, "existing");
         if (existingItem) {
           existingItem = {
             ...existingItem,
@@ -43,7 +42,7 @@ const cartSlice = createSlice({
           item.index3 === action.payload.id.indexes[2]
         );
       });
-      console.log(existingProductIndex);
+
       let existingItem = myState[existingProductIndex];
 
       existingItem = {

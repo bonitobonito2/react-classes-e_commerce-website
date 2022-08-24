@@ -49,7 +49,8 @@ class Cart extends React.Component {
 
   render() {
     if (this.state.data === "") return <p>loading</p>;
-    if (this.props.products === undefined) return 0;
+    if (this.props.products === undefined)
+      return;
 
     return (
       <Modal click={this.props.clickHandler}>
@@ -57,7 +58,6 @@ class Cart extends React.Component {
           <Fragment>
             <div className={classes.cart}>
               <TotalAmount totalAmount={this.props.totalAmount} />
-
               <CartProducts
                 takeData={this.takeData}
                 removeFromCart={this.props.removeFromCart}

@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import classes from "./totalPrice.module.css";
 class TotalPrice extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <Fragment>
         <div className={classes.taxDiv}>

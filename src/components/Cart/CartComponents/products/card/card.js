@@ -33,8 +33,8 @@ class CartProductCard extends React.Component {
 
   render() {
     return (
-      <div className={classes.card}>
-        <div className={classes.description}>
+      <div key={Math.random()} className={classes.card}>
+        <div  key={Math.random()}  className={classes.description}>
           <span className={classes.brandName}>{this.state.product.brand}</span>
           <span>{this.state.product.name}</span>
           <span className={classes.coast}>
