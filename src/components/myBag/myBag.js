@@ -46,7 +46,6 @@ class MyBag extends React.Component {
   }
 
   render() {
-    console.log(this.state.symbol);
     if (this.state.data === "") return <p>loading</p>;
     return (
       <div className={classes.main}>
@@ -55,6 +54,7 @@ class MyBag extends React.Component {
         <div className={classes.cart}>
           {this.props.totalAmount !== 0 && (
             <CartProducts
+              takeData={this.takeData}
               removeFromCart={this.props.removeFromCart}
               addToCart={this.props.addToCart}
               currencyIndex={this.props.currencyIndex}
@@ -90,7 +90,7 @@ const mapStateToprops = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => dispatch(cartSliceActions.addProductToCart({ id: id })),
+    addToCart: (id) => dispatch(cartSliceActions.addProductFromCart({ id: id })),
     removeFromCart: (id) =>
       dispatch(cartSliceActions.removeProductFromCart({ id: id })),
   };

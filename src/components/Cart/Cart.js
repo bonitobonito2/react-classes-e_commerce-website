@@ -10,11 +10,10 @@ import ViewBagButton from "./CartComponents/actions/viewBagButton";
 import CartProducts from "./CartComponents/products/product";
 import { cartSliceActions } from "../../store/cartSlice";
 import TotalPrice from "./CartComponents/totalPrice/totalPrice";
-import { compose } from "redux";
+
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       data: "",
     };
@@ -50,6 +49,8 @@ class Cart extends React.Component {
 
   render() {
     if (this.state.data === "") return <p>loading</p>;
+    if (this.props.products === undefined) return 0;
+
     return (
       <Modal click={this.props.clickHandler}>
         {this.props.totalAmount !== 0 && (
@@ -100,7 +101,8 @@ const mapStateToprops = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => dispatch(cartSliceActions.addProductToCart({ id: id })),
+    addToCart: (id) =>
+      dispatch(cartSliceActions.addProductFromCart({ id: id })),
     removeFromCart: (id) =>
       dispatch(cartSliceActions.removeProductFromCart({ id: id })),
   };

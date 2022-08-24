@@ -9,11 +9,14 @@ class AddToCartButton extends React.Component {
   clickListener = () => {
     this.props.addToCart({
       id: this.props.productId,
+      name : this.props.name,
+      brand : this.props.brand,
       index1: this.props.index1,
       index2: this.props.index2,
       index3: this.props.index3,
       count: 1,
       currencies: this.props.currencies,
+      
     });
   };
   render() {

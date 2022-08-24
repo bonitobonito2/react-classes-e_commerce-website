@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./amountActions.module.css";
-class AmountActions extends React.Component {
+import classes from './amountActionsForBag.module.css'
+class AmountActionsForBag extends React.Component {
     addClickHandler = () => {
         this.props.addToCart({ id: this.props.id, indexes: this.props.indexes });
         this.props.takeData();
@@ -32,4 +32,4 @@ class AmountActions extends React.Component {
   }
 }
 
-export default AmountActions;
+export default AmountActionsForBag;

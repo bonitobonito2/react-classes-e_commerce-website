@@ -9,8 +9,9 @@ export const parser = (arr, properties, additionalInfo) => {
           ) : (
             <span>{arr[mainIndex].name}:</span>
           )}
+
           {data.items.map((color, index) => {
-            if (index === properties[0]["index" + (mainIndex + 1)]) {
+            if (index === properties[mainIndex]) {
               return (
                 <div className={classes.borderDiv}>
                   <div
@@ -35,12 +36,11 @@ export const parser = (arr, properties, additionalInfo) => {
           {additionalInfo === "bag" ? (
             <span style={{ color: "black" }}>{arr[mainIndex].name}:</span>
           ) : (
-            <span>
-              {arr[mainIndex].name}:
-            </span>
+            <span>{arr[mainIndex].name}:</span>
           )}
+
           {data.items.map((info, index) => {
-            if (index === properties[0]["index" + (mainIndex + 1)]) {
+            if (index === properties[mainIndex]) {
               return (
                 <button
                   style={{

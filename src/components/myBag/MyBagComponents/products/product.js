@@ -4,18 +4,20 @@ class CartProducts extends React.Component {
   render() {
     return (
       <Fragment>
-        {this.props.products.map((item) => (
+      {this.props.indexs.map((item) => {
+        return (
           <Card
-            key={item.product.id}
+            key={item.id + Math.random()}
             removeFromCart={this.props.removeFromCart}
             addToCart={this.props.addToCart}
             currencyIndex={this.props.currencyIndex}
-            indexs={this.props.indexs}
-            product={item.product}
+            product={item}
             takeData={this.props.takeData}
+            fullProduct={this.props.products}
           />
-        ))}
-      </Fragment>
+        );
+      })}
+    </Fragment>
     );
   }
 }

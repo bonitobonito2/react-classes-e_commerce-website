@@ -10,7 +10,6 @@ class Products extends React.Component {
   }
   clickHandler = (id) => {
     this.props.setClickedProductID(id);
-    console.log(this.props)
   };
 
   render() {

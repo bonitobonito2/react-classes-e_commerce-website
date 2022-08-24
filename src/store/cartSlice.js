@@ -11,9 +11,15 @@ const cartSlice = createSlice({
       if (myState.length === 0) myState.push(action.payload);
       else {
         const existingProductIndex = myState.findIndex(
-          (item) => item.id === action.payload.id
+          (item) =>
+            item.id === action.payload.id &&
+            item.index1 === action.payload.index1 &&
+            item.index2 === action.payload.index2 &&
+            item.index2 === action.payload.index2
         );
         let existingItem = myState[existingProductIndex];
+
+        console.log(existingItem, "existing");
         if (existingItem) {
           existingItem = {
             ...existingItem,
@@ -28,10 +34,18 @@ const cartSlice = createSlice({
     },
     addProductFromCart(state, action) {
       let myState = state.cartProducts;
-      const existingProductIndex = myState.findIndex(
-        (item) => item.id === action.payload.id
-      );
+
+      const existingProductIndex = myState.findIndex((item) => {
+        return (
+          item.id === action.payload.id.id &&
+          item.index1 === action.payload.id.indexes[0] &&
+          item.index2 === action.payload.id.indexes[1] &&
+          item.index3 === action.payload.id.indexes[2]
+        );
+      });
+      console.log(existingProductIndex);
       let existingItem = myState[existingProductIndex];
+
       existingItem = {
         ...existingItem,
         count: (existingItem.count += 1),
@@ -42,11 +56,14 @@ const cartSlice = createSlice({
     removeProductFromCart(state, action) {
       let myState = state.cartProducts;
       const existingProductIndex = myState.findIndex(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === action.payload.id.id &&
+          item.index1 === action.payload.id.indexes[0] &&
+          item.index2 === action.payload.id.indexes[1] &&
+          item.index3 === action.payload.id.indexes[2]
       );
       let existingProduct = myState[existingProductIndex];
       if (existingProduct.count === 1) {
-        console.log("shemovedi washlashi");
         myState.splice(existingProductIndex, 1);
         state.cartProducts = myState;
       } else {

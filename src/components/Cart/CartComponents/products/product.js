@@ -1,20 +1,25 @@
 import React, { Fragment } from "react";
 import CartProductCard from "./card/card";
 class CartProducts extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Fragment>
-        {this.props.products.map((item) => (
-          <CartProductCard
-          key = {item.product.id}
-            removeFromCart={this.props.removeFromCart}
-            addToCart={this.props.addToCart}
-            currencyIndex={this.props.currencyIndex}
-            indexs={this.props.indexs}
-            product={item.product}
-            takeData = {this.props.takeData}
-          />
-        ))}
+        {this.props.indexs.map((item) => {
+          return (
+            <CartProductCard
+              key={item.id + Math.random()}
+              removeFromCart={this.props.removeFromCart}
+              addToCart={this.props.addToCart}
+              currencyIndex={this.props.currencyIndex}
+              product={item}
+              takeData={this.props.takeData}
+              fullProduct={this.props.products}
+            />
+          );
+        })}
       </Fragment>
     );
   }

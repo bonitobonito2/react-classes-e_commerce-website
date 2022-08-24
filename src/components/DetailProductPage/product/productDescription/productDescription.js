@@ -86,6 +86,8 @@ class ProductDescription extends React.Component {
           productId={this.props.id}
           currencies = {this.props.data.prices}
           inStock = {this.props.data.inStock}
+          brand = {this.props.data.brand}
+          name = {this.props.data.name}
         />
         <br />
         <div

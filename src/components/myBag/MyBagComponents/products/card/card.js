@@ -1,79 +1,64 @@
 import React from "react";
-import AmountActions from "./amountActions/amountActions";
+// import AmountActions from "./amountActions/amountActions";
 import classes from "./card.module.css";
 import { parser } from "../../../../../helper/CartAttributeParser";
+import AmountActionsForBag from "./amountActions/amountActionsForBag";
 
-//get right count after every update of product count
-const getFilteredCount = (arr, id) => arr.filter((info) => info.id === id);
 
 class Card extends React.Component {
   constructor(props) {
     super(props);
-    let information = [];
-    for (let i = 0; i < this.props.product.attributes.length; i++) {
-      let type = this.props.product.attributes[i].type;
-      let items = this.props.product.attributes[i].items;
-      let name = this.props.product.attributes[i].name;
 
-      information.push({ type, items, name });
-    }
-    const filteredCount = getFilteredCount(
-      this.props.indexs,
-      this.props.product.id
-    );
-    let choosenProperties = this.props.indexs.filter(
-      (data) => data.id === this.props.product.id
-    );
+    const { name, brand, id, count, index1, index2, index3, currencies } =
+      props.product;
+
+    const myProduct = props.fullProduct.find((e) => e.product.id === id);
+    console.log(myProduct)
+    const defaultAttributes = myProduct.product.attributes;
+    const gallery = myProduct.product.gallery;
+    const prices = myProduct.product.prices;
+
     this.state = {
-      information,
-      choosenProperties,
-      count: filteredCount[0].count,
+      product: {
+        name,
+        brand,
+        id,
+        count,
+      },
+      choosenAttributes: [index1, index2, index3],
+      defaultAttributes: defaultAttributes,
+      currencies,
+      gallery,
+      prices,
     };
   }
-  componentDidUpdate(prevProps, prevState) {
-    const filteredCount = getFilteredCount(
-      this.props.indexs,
-      this.props.product.id
-    );
 
-    if (filteredCount.length !== 0) {
-      if (prevState.count !== filteredCount[0].count) {
-        this.setState({
-          ...this.state,
-          count: filteredCount[0].count,
-        });
-      }
-    }
-  }
   render() {
-    console.log('vax')
     return (
       <div className={classes.card}>
         <div className={classes.description}>
-          <span className={classes.brandName}>{this.props.product.brand}</span>
-          <span>{this.props.product.name}</span>
+          <span className={classes.brandName}>{this.state.product.brand}</span>
+          <span>{this.state.product.name}</span>
           <span className={classes.coast}>
-            {
-              this.props.product.prices[this.props.currencyIndex].currency
-                .symbol
-            }
-            {this.props.product.prices[this.props.currencyIndex].amount}
+            {this.state.currencies[this.props.currencyIndex].currency.symbol}
+            {this.state.prices[this.props.currencyIndex].amount}
           </span>
 
-          {this.state.information &&
-            parser(this.state.information, this.state.choosenProperties, "bag")}
+          {this.state.product &&
+            parser(this.state.defaultAttributes, this.state.choosenAttributes)}
         </div>
 
-        <AmountActions
-          id={this.props.product.id}
+        <AmountActionsForBag
+          id={this.state.product.id}
           addToCart={this.props.addToCart}
-          count={this.state.count}
+          count={this.state.product.count}
           removeFromCart={this.props.removeFromCart}
           takeData={this.props.takeData}
+          indexes={this.state.choosenAttributes}
         />
 
         <div className={classes.img}>
-          <img src={this.props.product.gallery[0]} />
+          <img src={this.state.gallery[0]} />
         </div>
       </div>
     );
