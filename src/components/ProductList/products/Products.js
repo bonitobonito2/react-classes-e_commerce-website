@@ -16,6 +16,7 @@ class Products extends React.Component {
     return (
       <Fragment>
        <h2>Category name</h2>
+     
         <div className={classes.products}>
         
           {this.props.products.map((data, index) => {
