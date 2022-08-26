@@ -21,9 +21,9 @@ class TotalPrice extends React.Component {
         </div>
 
         <div className={classes.totalPriceDiv}>
-          <div className={classes.total}>
+         
             <span>Total:</span>
-          </div>
+         
 
           <div className={classes.price}>
             <span>
