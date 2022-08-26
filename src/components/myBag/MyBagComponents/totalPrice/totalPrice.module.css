@@ -7,6 +7,8 @@
 .total {
   width: 50%;
   display: flex;
+  color: black;
+  font-weight: 550;
 }
 
 .price {
