@@ -23,6 +23,7 @@ class Categories extends React.Component {
         {this.props.categories.map((category) => {
           return (
             <div
+            key={Math.random()}
               onClick={() => this.clickHandler(category.name)}
               className={
                 this.state.active === category.name ? classes.active : ""
