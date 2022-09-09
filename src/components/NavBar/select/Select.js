@@ -1,6 +1,7 @@
 import React from "react";
 import fetch from "../../../helper/fetch";
 import { getCurrencies } from "../../../Schemas/getCurrencies";
+import Select from "react-select";
 import classes from "./Select.module.css";
 import { currencyActions } from "../../../store/currencieSlice";
 import { connect } from "react-redux/es/exports";
@@ -9,10 +10,23 @@ class SelectCurrency extends React.Component {
     super(props);
     this.state = null;
   }
+
+   style = {
+    control: base => ({
+      ...base,
+      border: 0,
+      // This line disable the blue border
+      boxShadow: 'none'
+    })
+  };
   selectChangeHandler = (event) => {
-    let data = event.target.value.split(" ");
-    this.props.changeCurrency(data[0]);
-    this.setState({ ...this.state, symbol: data[1] });
+    console.log(event);
+
+    this.props.changeCurrency(event.index.index);
+    this.setState({
+      ...this.state,
+      choosen: { value: event.value, label: event.value },
+    });
   };
 
   componentDidMount() {
@@ -26,17 +40,18 @@ class SelectCurrency extends React.Component {
     if (this.state === null) return 0;
     return (
       <div className={classes.selectDiv}>
-        <select className={classes.select} onChange={this.selectChangeHandler}>
-          {this.state.data.currencies.map((data, index) => (
-            <option
-              className={classes.option}
-              key={index}
-              value={`${index} ${data.symbol}`}
-            >
-              {`${data.symbol} ${data.label}`}
-            </option>
-          ))}
-        </select>
+        <Select
+          styles={this.style}
+          options={this.state.data.currencies.map((data, index) => ({
+            value: data.symbol,
+            label: ` ${data.symbol} ${data.label}`,
+            index: { index },
+          }))}
+          defaultValue={{ value: "$ usd", label: "$" }}
+          value={this.state.choosen && this.state.choosen}
+          onChange={this.selectChangeHandler}
+          placeholder="პოზიცია"
+        />
       </div>
     );
   }

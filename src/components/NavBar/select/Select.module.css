@@ -1,12 +1,6 @@
 .selectDiv {
   float: right;
+  width: 90px;
 }
 
-select {
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-}
-option {
-  cursor: pointer;
-}
+
