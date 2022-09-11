@@ -4,3 +4,7 @@
     background-color: rgb(81, 208, 129);
     cursor: pointer;
   }
+
+.error{
+  color: red;
+}

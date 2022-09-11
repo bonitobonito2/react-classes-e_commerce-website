@@ -22,7 +22,7 @@ class AddToCartButton extends React.Component {
   render() {
     return (
       <div>
-        {!this.props.inStock && <p>The product is out of stock.</p>}
+        {!this.props.inStock && <p className={classes.error}>The product is out of stock.</p>}
         <button disabled = {!this.props.inStock} onClick={this.clickListener} className={classes.addCart}>
           add to cart
         </button>

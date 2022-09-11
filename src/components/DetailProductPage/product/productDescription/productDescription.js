@@ -93,9 +93,6 @@ class ProductDescription extends React.Component {
         <br />
         <div
           className={classes.descriptionDiv}
-          // dangerouslySetInnerHTML={{
-          //   __html:  DOMPurify.sanitize(this.props.data.description),
-          // }}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.props.data.description) }}
         />
       </div>
