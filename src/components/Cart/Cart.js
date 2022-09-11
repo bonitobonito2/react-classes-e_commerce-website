@@ -24,6 +24,7 @@ class Cart extends React.Component {
     let totalPrice = 0;
     let symbol = "";
     for (var i = 0; i < this.props.products.length; i++) {
+      console.log(  this.props.products[i],'idddddddd')
       let item = await fetch(getSingleProduct, {
         id: this.props.products[i].id,
       });

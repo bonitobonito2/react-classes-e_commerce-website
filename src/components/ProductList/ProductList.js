@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { getProducts } from "../../Schemas/getProducts";
 import Products from "./products/Products";
 import fetch from "../../helper/fetch";
+import classes from './ProductList.module.css'
 import { withRouter } from "../../helper/withRouter";
 class ProductList extends React.Component {
   constructor(props) {
@@ -39,7 +40,13 @@ class ProductList extends React.Component {
     if (this.state.data === "") return <p>loading</p>;
     return (
       <Fragment>
-        <Products navigate = {this.props.navigate} products={this.state.data.category.products} />
+       
+        <h2 className={classes.categoryName}>{this.props.params.category.toUpperCase()}</h2>
+     
+        <Products
+          navigate={this.props.navigate}
+          products={this.state.data.category.products}
+        />
       </Fragment>
     );
   }

@@ -33,11 +33,12 @@ class Categories extends React.Component {
                 className={classes.unActive}
                 to={`/productList/category/${category.name}`}
               >
-                {category.name}
+                {category.name.toUpperCase()}
               </NavLink>
             </div>
           );
         })}
+         
       </div>
     );
   }

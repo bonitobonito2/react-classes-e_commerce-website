@@ -1,13 +1,15 @@
 import React, { Fragment } from "react";
 import classes from "./productDescription.module.css";
 import { cartSliceActions } from "../../../../store/cartSlice";
+import DOMPurify from "dompurify";
 import { connect } from "react-redux";
 import AddToCartButton from "./addToCartButton/addToCartButton";
 import attributeParser from "../../../../helper/attributeParser";
 class ProductDescription extends React.Component {
   constructor(props) {
+  
     super(props);
-
+    console.log(this.props)
     // maneging two state indexs, due to manipulate change attribute items, for example
     //if i want to change a color, size shouldnot change automaticcly.
     this.state = {
@@ -55,7 +57,6 @@ class ProductDescription extends React.Component {
       );
   };
   render() {
-    
     return (
       <div className={classes.main}>
         <div>
@@ -84,15 +85,18 @@ class ProductDescription extends React.Component {
           index3={this.state.indexForThird}
           addToCart={this.props.setClickedProductID}
           productId={this.props.id}
-          currencies = {this.props.data.prices}
-          inStock = {this.props.data.inStock}
-          brand = {this.props.data.brand}
-          name = {this.props.data.name}
+          currencies={this.props.data.prices}
+          inStock={this.props.data.inStock}
+          brand={this.props.data.brand}
+          name={this.props.data.name}
         />
         <br />
         <div
           className={classes.descriptionDiv}
-          dangerouslySetInnerHTML={{ __html: this.props.data.description }}
+          // dangerouslySetInnerHTML={{
+          //   __html:  DOMPurify.sanitize(this.props.data.description),
+          // }}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.props.data.description) }}
         />
       </div>
     );
