@@ -8,16 +8,17 @@ import { connect } from "react-redux/es/exports";
 class SelectCurrency extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props, "props");
     this.state = null;
   }
 
-   style = {
-    control: base => ({
+  style = {
+    control: (base) => ({
       ...base,
       border: 0,
       // This line disable the blue border
-      boxShadow: 'none'
-    })
+      boxShadow: "none",
+    }),
   };
   selectChangeHandler = (event) => {
     console.log(event);
@@ -47,7 +48,10 @@ class SelectCurrency extends React.Component {
             label: ` ${data.symbol} ${data.label}`,
             index: { index },
           }))}
-          defaultValue={{ value: "$ usd", label: "$" }}
+          defaultValue={{
+            value: this.state.data.currencies[this.props.currencyIndex].symbol,
+            label: this.state.data.currencies[this.props.currencyIndex].symbol,
+          }}
           value={this.state.choosen && this.state.choosen}
           onChange={this.selectChangeHandler}
           placeholder="პოზიცია"
@@ -62,4 +66,10 @@ const mapDispatchToProps = (dispatch) => {
     changeCurrency: (index) => dispatch(currencyActions.changeCurrency(index)),
   };
 };
-export default connect(null, mapDispatchToProps)(SelectCurrency);
+
+const mapStateToprops = (state) => {
+  return {
+    currencyIndex: state.currenciesSlice.index,
+  };
+};
+export default connect(mapStateToprops, mapDispatchToProps)(SelectCurrency);

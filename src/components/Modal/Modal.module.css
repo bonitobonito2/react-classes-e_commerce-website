@@ -16,7 +16,7 @@
     padding: 32px 16px;
     gap: 32px;
     
-    position: absolute;
+    position: fixed;
     width: 325px;
     max-height: 677px;
     right:100px;
@@ -24,6 +24,7 @@
     
     background: #FFFFFF;
     z-index: 30;
+    
   }
 
   @media only screen and (max-width: 1800px) {

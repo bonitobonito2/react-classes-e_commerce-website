@@ -38,7 +38,7 @@ class Card extends React.Component {
             alt=""
           />
           {!this.props.stock && (
-            <div className={classes.outOfStock}>
+            <div   onClick={this.clickListener} className={classes.outOfStock}>
               <p className={classes.outText}>out of stock</p>
             </div>
           )}

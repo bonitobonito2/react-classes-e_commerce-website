@@ -5,13 +5,13 @@
   padding: 0px;
   gap: 8px;
   width: 293px;
-  padding-top: 15px;
-  font-size: 15px;
+  /* padding-top: 15px;
+  font-size: 15px; */
   flex: none;
   order: 1;
   height: 150px;
   flex-grow: 0;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
 }
 
 .description {

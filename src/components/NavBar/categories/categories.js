@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
+import { connect, Connect } from "react-redux";
 import { getCategories } from "../../../Schemas/getCattegories";
 import classes from "./Categories.module.css";
 
@@ -43,5 +44,4 @@ class Categories extends React.Component {
     );
   }
 }
-
 export default Categories;
