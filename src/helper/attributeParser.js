@@ -1,5 +1,5 @@
-import classes from '../components/DetailProductPage/product/productDescription/productDescription.module.css'
-import { Fragment } from 'react';
+import classes from "../components/DetailProductPage/product/productDescription/productDescription.module.css";
+import { Fragment } from "react";
 const attributeParser = (index, attribute, stateIndex, changeFunction) => {
   return (
     <div>
@@ -26,7 +26,7 @@ const attributeParser = (index, attribute, stateIndex, changeFunction) => {
                         backgroundColor: `${data.value}`,
                         color: `${data.value}`,
                         cursor: "pointer",
-                        border : '1px solid black'
+                        border: "1px solid black",
                       }}
                     ></div>
                   </div>
@@ -38,7 +38,7 @@ const attributeParser = (index, attribute, stateIndex, changeFunction) => {
                       color: `${data.value}`,
                       cursor: "pointer",
                       margin: "5px",
-                      border : '1px solid black'
+                      border: "1px solid black",
                     }}
                   ></div>
                 )}
