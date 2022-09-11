@@ -26,7 +26,7 @@ export class App extends React.Component {
     takeData()
   }
   render() {
-    console.log(this.state,'state')
+  
     if(!this.state.categories) return <p>loading</p>
     return (
       <Routes>
